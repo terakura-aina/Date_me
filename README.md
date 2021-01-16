@@ -34,3 +34,6 @@ LINE上で、デート中に"ドキドキするアクション"を提案、行�
 
 ## 画面遷移図
 https://xd.adobe.com/view/1720b733-f087-4b61-a494-12e01cba8629-4273/
+
+## ER図
+https://drive.google.com/file/d/1AGXLePP-HWYbJKf-u2P9vBgifvpB9Tbj/view?usp=sharing
