@@ -40,6 +40,15 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  #require:false => Bundler.requireなどをした時に含まれなくなる(rubocopなど、bundlerによってアプリ側に自動で読み込む必要がないものに指定する)
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
+
+#エラー画面をわかりやすくしてくれる&ブラウザ上でirbを使えるようにする
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
