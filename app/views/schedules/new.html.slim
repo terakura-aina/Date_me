@@ -1,0 +1,22 @@
+h1
+  |デートのお誘い
+
+#error_explanation
+
+= form_with(model: @schedule, id: 'form', local: false) do |f|
+  = f.label :start_planned_day_at, :開始時間, class: 'control-label'
+  = f.datetime_select :start_planned_day_at, class: 'form-control', :minute_step => 15
+  br
+  = f.label :finish_planned_day_at, :終了予定, class: 'control-label'
+  = f.datetime_select :finish_planned_day_at, class: 'form-control', :minute_step => 15
+  br
+  = f.label :place, :行き先, class: 'control-label'
+  = f.text_field :place, class: 'form-control'
+  br
+  = f.label :other, :やりたいこと, class: 'control-label'
+  = f.text_field :other, class: 'form-control'
+
+  br
+  = f.submit :相手を選択する, class: 'getProfile'
+
+  = javascript_pack_tag 'schedules/new'

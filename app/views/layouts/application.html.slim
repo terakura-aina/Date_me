@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title
+      | Date me!
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    script[charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"]
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+  body
+    = yield
