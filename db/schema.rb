@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_125123) do
+ActiveRecord::Schema.define(version: 2021_02_12_135435) do
 
   create_table "schedules", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "start_planned_day_at", null: false
@@ -19,8 +19,17 @@ ActiveRecord::Schema.define(version: 2021_02_12_125123) do
     t.text "other"
     t.integer "answer", default: 0, null: false
     t.text "token", null: false
+    t.bigint "inviter_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["inviter_id"], name: "index_schedules_on_inviter_id"
+  end
+
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "line_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "schedules", "users", column: "inviter_id"
 end
