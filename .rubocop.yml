@@ -1,0 +1,44 @@
+inherit_from: .rubocop_todo.yml
+
+## rubocop関連のgemをrequireする
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+## 全体に適応する項目を定義。ここで Exclude に設定したファイルは、チェック対象外になる。
+AllCops:
+  TargetRubyVersion: 2.6.6
+  TargetRailsVersion: 6.1.2
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'lib/tasks/auto_annotate_models.rake'
+
+#railsモードにする。railsプロジェクトなら基本trueにしておく。
+Rails:
+  Enabled: true
+
+#Exclude => 対象外のファイルを指定
+Rails/FilePath:
+  Exclude:
+    - 'lib/tasks/dev.rake'
+    - 'spec/rails_helper.rb'
+
+#`and return` の形式を利用できるようにする。基本的には、&& と || を使う。
+Style/AndOr:
+  Enabled: false
+
+#日本語コメントを許可。
+Style/AsciiComments:
+  Enabled: false
+
+# メソッド名のprefixに「set_」「get_」を許可
+AccessorMethodName:
+  Enabled: false
+
+# 「and」「or」の使用を許可
+AndOr:
+  Enabled: false
