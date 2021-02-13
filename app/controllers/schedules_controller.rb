@@ -1,4 +1,6 @@
 class SchedulesController < ApplicationController
+  require 'net/http'
+  require 'uri'
   def new
   end
 
