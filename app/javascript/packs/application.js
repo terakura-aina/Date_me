@@ -9,16 +9,3 @@ import "channels"
 
 Rails.start()
 ActiveStorage.start()
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  // 他のメソッドを実行できるようになるための作業
-  liff.init({
-    liffId: "11655665365-robLXJ1P"
-  })
-  .then(() => {
-    if (!liff.isLoggedIn()) {
-      liff.login();
-    }
-  })
-})

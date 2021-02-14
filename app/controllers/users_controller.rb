@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def create
-    debugger
     idToken = params[:idToken]
     channelId = '1655665365'
     res = Net::HTTP.post_form(URI.parse('https://api.line.me/oauth2/v2.1/verify'),
