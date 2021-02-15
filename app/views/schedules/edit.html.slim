@@ -17,7 +17,10 @@ p
   br
   = @schedule.other
   br
-  = link_to "OKする", schedule_path(@schedule.id), data: { confirm: 'パートナーにOKの通知をします。よろしいですか?' },
+  = link_to "OK!", schedule_path(@schedule.id), data: { confirm: 'パートナーにOKの通知をします。よろしいですか?' },
                                                  method: :PATCH, id: 'ok', remote: true
+  br
+  = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後から返答を変更することはできません。よろしいですか?' },
+                                                 method: :DELETE, id: 'ng'
 
 = javascript_pack_tag 'schedules/edit'
