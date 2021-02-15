@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_044203) do
+ActiveRecord::Schema.define(version: 2021_02_15_052314) do
 
   create_table "make_plans", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "inviter_id", null: false
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 2021_02_15_044203) do
     t.index ["inviter_id"], name: "index_schedules_on_inviter_id"
   end
 
+  create_table "today_missions", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "schedule_id", null: false
+    t.bigint "inviter_mission_id", null: false
+    t.bigint "partner_mission_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["inviter_mission_id"], name: "index_today_missions_on_inviter_mission_id"
+    t.index ["partner_mission_id"], name: "index_today_missions_on_partner_mission_id"
+    t.index ["schedule_id"], name: "index_today_missions_on_schedule_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "line_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -52,4 +63,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_044203) do
   add_foreign_key "make_plans", "users", column: "inviter_id"
   add_foreign_key "make_plans", "users", column: "partner_id"
   add_foreign_key "schedules", "users", column: "inviter_id"
+  add_foreign_key "today_missions", "missions", column: "inviter_mission_id"
+  add_foreign_key "today_missions", "missions", column: "partner_mission_id"
+  add_foreign_key "today_missions", "schedules"
 end
