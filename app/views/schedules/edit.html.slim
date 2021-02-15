@@ -1,2 +1,26 @@
-<h1>Schedules#edit</h1>
-<p>Find me in app/views/schedules/edit.html.erb</p>
+h1
+  |スケジュール内容
+p
+  |開始時間:
+  br
+  = l @schedule.start_planned_day_at
+p
+  |終了予定時間:
+  br
+  = l @schedule.finish_planned_day_at
+p
+  |場所:
+  br
+  = @schedule.place
+p
+  |やりたいこと:
+  br
+  = @schedule.other
+  br
+  = link_to "OK!", schedule_path(@schedule.id), data: { confirm: 'パートナーにOKの通知をします。よろしいですか?' },
+                                                 method: :PATCH, id: 'ok', remote: true
+  br
+  = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後から返答を変更することはできません。よろしいですか?' },
+                                                 method: :DELETE, id: 'ng'
+
+= javascript_pack_tag 'schedules/edit'
