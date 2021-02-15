@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_135435) do
+ActiveRecord::Schema.define(version: 2021_02_15_025639) do
+
+  create_table "make_plans", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "inviter_id", null: false
+    t.bigint "partner_id", null: false
+    t.bigint "schedule_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["inviter_id"], name: "index_make_plans_on_inviter_id"
+    t.index ["partner_id"], name: "index_make_plans_on_partner_id"
+    t.index ["schedule_id"], name: "index_make_plans_on_schedule_id", unique: true
+  end
 
   create_table "schedules", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "start_planned_day_at", null: false
@@ -31,5 +42,8 @@ ActiveRecord::Schema.define(version: 2021_02_12_135435) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "make_plans", "schedules"
+  add_foreign_key "make_plans", "users", column: "inviter_id"
+  add_foreign_key "make_plans", "users", column: "partner_id"
   add_foreign_key "schedules", "users", column: "inviter_id"
 end
