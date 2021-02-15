@@ -3,10 +3,9 @@ namespace :push do
 
   task push_mission: :environment do
     schedules = Schedule.where('start_planned_day_at <= ? and finish_planned_day_at > ? and answer = ?', Time.now, Time.now, 1)
-    inviter_mission = Mission.order("RANDOM()").first
-    partner_mission = Mission.order("RANDOM()").first
+    inviter_mission = Mission.order("RAND()").first
+    partner_mission = Mission.order("RAND()").first
     schedules.each do |schedule|
-       # inviterにミッションを送る
       message = {
         type: 'text',
         text: inviter_mission.body
@@ -36,7 +35,7 @@ namespace :push do
   end
 
   task push_remind: :environment do
-    schedules = Schedule.where('start_planned_day_at = ?', Time.now.ago(1.hours))
+    schedules = Schedule.where('start_planned_day_at <= ? and finish_planned_day_at >= ? and answer = ?', Time.now.since(1.hours), Time.now.since(1.hours).since(1.minutes), 1)
     schedules.each do |schedule|
       message = {
         type: 'text',
