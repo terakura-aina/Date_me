@@ -44,6 +44,9 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find_by(token: params[:token])
+    if @schedule == nil || @schedule.answer == 'ok'
+      raise ActiveRecord::RecordNotFound
+    end
   end
 
   def update
