@@ -35,7 +35,7 @@ namespace :push do
   end
 
   task push_remind: :environment do
-    schedules = Schedule.where('start_planned_day_at <= ? and finish_planned_day_at >= ? and answer = ?', Time.now.since(1.hours), Time.now.since(1.hours).since(1.minutes), 1)
+    schedules = Schedule.where('start_planned_day_at <= ? and start_planned_day_at >= ? and answer = ?', Time.now.since(1.hours), Time.now.since(1.hours).since(1.minutes), 1)
     schedules.each do |schedule|
       message = {
         type: 'text',
