@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_025639) do
+ActiveRecord::Schema.define(version: 2021_02_15_044203) do
 
   create_table "make_plans", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "inviter_id", null: false
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2021_02_15_025639) do
     t.index ["inviter_id"], name: "index_make_plans_on_inviter_id"
     t.index ["partner_id"], name: "index_make_plans_on_partner_id"
     t.index ["schedule_id"], name: "index_make_plans_on_schedule_id", unique: true
+  end
+
+  create_table "missions", charset: "utf8mb4", force: :cascade do |t|
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "schedules", charset: "utf8mb4", force: :cascade do |t|
