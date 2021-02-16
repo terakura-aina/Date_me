@@ -1,0 +1,16 @@
+h1 ミッション一覧
+table
+  thead
+    tr
+      th ミッション
+
+  tbody
+    -if params[:user] == 'inviter'
+      - @schedule.invited_missions.each do |mission|
+          tr
+            td = mission.body
+
+    -if params[:user] == 'partner'
+      - @schedule.partner_missions.each do |mission|
+          tr
+            td = mission.body

@@ -8,7 +8,7 @@ namespace :push do
     schedules.each do |schedule|
       message = {
         type: 'text',
-        text: inviter_mission.body
+        text: "https://liff.line.me/1655665365-robLXJ1P/missions/#{schedule.token}/inviter"
       }
       client = Line::Bot::Client.new { |config|
           config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -20,7 +20,7 @@ namespace :push do
       # partnerにミッションを送る
       message = {
         type: 'text',
-        text: partner_mission.body
+        text: "https://liff.line.me/1655665365-robLXJ1P/missions/#{schedule.token}/partner"
       }
       client = Line::Bot::Client.new { |config|
           config.channel_secret = ENV['LINE_CHANNEL_SECRET']
