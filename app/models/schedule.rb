@@ -3,6 +3,9 @@ class Schedule < ApplicationRecord
 
   has_one :make_plan, dependent: :destroy
   belongs_to :inviter, class_name: 'User'
+  has_many :today_missions, dependent: :destroy
+  has_many :invited_missions, through: :today_missions, source: :inviter_mission
+  has_many :partner_missions, through: :today_missions, source: :partner_mission
 
   validates :answer, presence: true
 
