@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe "Users", type: :request do
 
   describe "GET /create" do
+    let!(:user) { create(:user) }
+
     it "returns http success" do
-      get "/users/create"
+      post users_path
       expect(response).to have_http_status(:success)
     end
   end

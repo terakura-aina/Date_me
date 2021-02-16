@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :make_plan do
-    inviter { nil }
-    partner { nil }
-    schedule { nil }
+    inviter { 1 }
+    partner { 1 }
+    schedule { 1 }
   end
 end
