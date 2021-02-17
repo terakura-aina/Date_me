@@ -18,12 +18,12 @@ class SchedulesController < ApplicationController
       render json: @schedule
       message = {
         "type": "text",
-        "text": "デートのお誘いをしています！\nお返事があるまでお待ちください $",
+        "text": "デートのお誘いをしています！\nお返事があるまでお待ちください$",
         "emojis": [
           {
-            "index": 31,
+            "index": 30,
             "productId": "5ac1bfd5040ab15980c9b435",
-            "emojiId": "001"
+            "emojiId": "009"
           }
         ]
       }

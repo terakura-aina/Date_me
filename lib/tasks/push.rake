@@ -7,8 +7,21 @@ namespace :push do
     partner_mission = Mission.order("RAND()").first
     schedules.each do |schedule|
       message = {
-        type: 'text',
-        text: "https://liff.line.me/1655665365-robLXJ1P/missions/#{schedule.token}/inviter"
+        "type": "template",
+        "altText": "ミッションが届いています",
+        "template": {
+            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613557284/72821782_ugfjcf.jpg",
+            "type": "buttons",
+            "title": "デートを楽しんでいるお二人へ",
+            "text": "新しいミッションが届きました！",
+            "actions": [
+                {
+                  "type": "uri",
+                  "label": "ミッションを確認する",
+                  "uri": "https://liff.line.me/1655665365-robLXJ1P/missions/#{schedule.token}/inviter"
+                }
+            ]
+        }
       }
       client = Line::Bot::Client.new { |config|
           config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -19,8 +32,21 @@ namespace :push do
 
       # partnerにミッションを送る
       message = {
-        type: 'text',
-        text: "https://liff.line.me/1655665365-robLXJ1P/missions/#{schedule.token}/partner"
+        "type": "template",
+        "altText": "ミッションが届いています",
+        "template": {
+            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613557284/72821782_ugfjcf.jpg",
+            "type": "buttons",
+            "title": "デートを楽しんでいるお二人へ",
+            "text": "新しいミッションが届きました！",
+            "actions": [
+                {
+                  "type": "uri",
+                  "label": "ミッションを確認する",
+                  "uri": "https://liff.line.me/1655665365-robLXJ1P/missions/#{schedule.token}/partner"
+                }
+            ]
+        }
       }
       client = Line::Bot::Client.new { |config|
           config.channel_secret = ENV['LINE_CHANNEL_SECRET']
