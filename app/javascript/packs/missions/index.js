@@ -10,3 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 })
+
+$(function () {
+  $('.btn').on('click', function () {
+      if ($(this).text() === '完了') {
+          $(this).text('未完了');
+      } else {
+          $(this).text('完了');
+      }
+  });
+});
