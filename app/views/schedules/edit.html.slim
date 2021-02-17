@@ -1,26 +1,26 @@
-h1
+h1.text-4xl.text-center.wf-kokoro
   |スケジュール内容
-p
+p.wf-kokoro.text-2xl.p-2
   |開始時間:
   br
   = l @schedule.start_planned_day_at
-p
+p.wf-kokoro.text-2xl.p-2
   |終了予定時間:
   br
   = l @schedule.finish_planned_day_at
-p
+p.wf-kokoro.text-2xl.p-2
   |場所:
   br
   = @schedule.place
-p
+p.wf-kokoro.text-2xl.p-2
   |やりたいこと:
   br
   = @schedule.other
   br
-  = link_to "OK!", schedule_path(@schedule.id), data: { confirm: 'パートナーにOKの通知をします。よろしいですか?' },
-                                                 method: :PATCH, id: 'ok', remote: true
   br
+  = link_to "OK!", schedule_path(@schedule.id), data: { confirm: 'パートナーにOKの通知をします。よろしいですか?' },
+                                                 method: :PATCH, id: 'ok', remote: true, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded-full'
   = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後から返答を変更することはできません。よろしいですか?' },
-                                                 method: :DELETE, id: 'ng'
+                                                 method: :DELETE, id: 'ng',class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
 
 = javascript_pack_tag 'schedules/edit'

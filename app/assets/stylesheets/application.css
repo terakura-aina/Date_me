@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.wf-kokoro { font-family: "Kokoro"; }
+
+.main-container {
+  background-image: url("/images/83346920.jpeg");
+  height: 800px;
+  background-size: cover;
+}
