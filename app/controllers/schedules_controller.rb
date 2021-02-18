@@ -18,12 +18,12 @@ class SchedulesController < ApplicationController
       render json: @schedule
       message = {
         "type": "text",
-        "text": "デートのお誘いをしています！\nお返事があるまでお待ちください$",
+        "text": "デートのお誘いをしています！\nお返事があるまでお待ちください $",
         "emojis": [
           {
-            "index": 30,
+            "index": 31,
             "productId": "5ac1bfd5040ab15980c9b435",
-            "emojiId": "009"
+            "emojiId": "001"
           }
         ]
       }
@@ -35,9 +35,8 @@ class SchedulesController < ApplicationController
       p response
     else
       respond_to do |format|
-        format.json { render status: 400, json: { status: 400, message: 'Bad Request' } }
-        format.html
-        format.js { render 'new' }
+        format.js { render 'create', status: 400 }
+        format.js { render 'create' }
       end
     end
   end
@@ -75,6 +74,6 @@ class SchedulesController < ApplicationController
   private
 
   def schedule_params
-    params.require(:schedule).permit(:start_planned_day_at, :finish_planned_day_at, :other, :inviter_id)
+    params.require(:schedule).permit(:start_planned_day_at, :finish_planned_day_at, :place, :other, :inviter_id)
   end
 end
