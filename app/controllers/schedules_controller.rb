@@ -13,17 +13,17 @@ class SchedulesController < ApplicationController
   def create
     user = User.find(session[:user_id])
     @schedule = Schedule.new(schedule_params)
-    if @schedule.update(token: SecureRandom.hex(32),inviter_id: user.id)
-      @schedule.update(token: SecureRandom.hex(32),inviter_id: user.id)
+    if @schedule.update(token: SecureRandom.hex(32),invited_id: user.id)
+      @schedule.update(token: SecureRandom.hex(32),invited_id: user.id)
       render json: @schedule
       message = {
         "type": "text",
-        "text": "デートのお誘いをしています！\nお返事があるまでお待ちください $",
+        "text": "デートのお誘いをしています！\nお返事があるまでお待ちください$",
         "emojis": [
           {
-            "index": 31,
+            "index": 30,
             "productId": "5ac1bfd5040ab15980c9b435",
-            "emojiId": "001"
+            "emojiId": "009"
           }
         ]
       }
@@ -31,7 +31,7 @@ class SchedulesController < ApplicationController
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
       }
-      response = client.push_message(@schedule.inviter.line_user_id, message)
+      response = client.push_message(@schedule.invited.line_user_id, message)
       p response
     else
       respond_to do |format|
@@ -62,7 +62,7 @@ class SchedulesController < ApplicationController
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
       }
-      response = client.push_message(@schedule.inviter.line_user_id, message)
+      response = client.push_message(@schedule.invited.line_user_id, message)
       p response
   end
 
@@ -74,6 +74,6 @@ class SchedulesController < ApplicationController
   private
 
   def schedule_params
-    params.require(:schedule).permit(:start_planned_day_at, :finish_planned_day_at, :place, :other, :inviter_id)
+    params.require(:schedule).permit(:start_planned_day_at, :finish_planned_day_at, :other, :invited_id)
   end
 end

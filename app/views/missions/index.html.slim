@@ -5,7 +5,7 @@ table
       th
 
   tbody
-    -if params[:user] == 'inviter'
+    -if params[:user] == 'invited'
       - @schedule.invited_missions.each do |mission|
           tr
             td.px-4.ml-2.p-2.wf-kokoro = mission.body

@@ -1,6 +1,6 @@
 class MakePlan < ApplicationRecord
   # invitedモデルを探しにいってしまうので、class_nameを指定してあげる
-  belongs_to :inviter, class_name: 'User'
+  belongs_to :invited, class_name: 'User'
   belongs_to :partner, class_name: 'User'
   belongs_to :schedule
 

@@ -10,8 +10,8 @@ class MakePlansController < ApplicationController
     render :json => res.body
     partner_id = params[:dataId]
     schedule = Schedule.find_by(token: params[:scheduleToken])
-    inviter_id = schedule.inviter_id
-    plan = MakePlan.new(inviter_id: inviter_id, partner_id: partner_id,schedule_id: schedule.id)
+    invited_id = schedule.invited_id
+    plan = MakePlan.new(invited_id: invited_id, partner_id: partner_id,schedule_id: schedule.id)
     # 誤って二重に登録するのを防止
     plan.save! if MakePlan.find_by(schedule_id: schedule.id) == nil
   end

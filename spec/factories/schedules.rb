@@ -6,6 +6,6 @@ FactoryBot.define do
     other { "MyText" }
     answer { 0 }
     token { "MyText" }
-    inviter_id { 1 }
+    invited_id { 1 }
   end
 end
