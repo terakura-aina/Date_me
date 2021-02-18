@@ -38,13 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // ここでshared target pickerを呼び出す
     const redirect_url = `https://liff.line.me/1655665365-robLXJ1P/schedules/${e.detail[0].token}`
     liff.shareTargetPicker([
-      {
-      'type': 'text',
-      'text': 'デートのお誘いです'
-      },
-      {
-      'type': 'text',
-      'text': redirect_url
+      message = {
+        "type": "template",
+        "altText": "デートのおさそいが届いています",
+        "template": {
+            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613550347/83836468_anvcuq.jpg",
+            "type": "buttons",
+            "title": "デートのおさそい",
+            "text": "大好きなあなたとデートに行きたいです！",
+            "actions": [
+                {
+                  "type": "uri",
+                  "label": "デートの詳細はここから確認してね！",
+                  "uri": redirect_url
+                }
+            ]
+        }
       }
     ]).then((res) => {
       if (res) {

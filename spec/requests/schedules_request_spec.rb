@@ -1,23 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe "Schedules", type: :request do
+  let!(:user) { create(:user) }
+  let!(:schedule) { create(:schedule)}
 
-  describe "GET /new" do
+  describe "GET new_schedule_path" do
     it "returns http success" do
-      get "/schedules/new"
+      get new_schedule_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /create" do
-    it "returns http success" do
-      get "/schedules/create"
+  describe "POST /create" do
+    xit "returns http success" do
+      post schedules_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /index" do
-    it "returns http success" do
+    xit "returns http success" do
       get "/schedules/index"
       expect(response).to have_http_status(:success)
     end
@@ -25,21 +27,21 @@ RSpec.describe "Schedules", type: :request do
 
   describe "GET /edit" do
     it "returns http success" do
-      get "/schedules/edit"
+      get "/schedules/MyText"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /update" do
     it "returns http success" do
-      get "/schedules/update"
+      patch "/schedules/1"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /destroy" do
     it "returns http success" do
-      get "/schedules/destroy"
+      delete "/schedules/1"
       expect(response).to have_http_status(:success)
     end
   end
