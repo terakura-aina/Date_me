@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // フォームの内容をpostしてokが返ってきたらshareTargetPickerを開く
   const postFormElm = document.querySelector('#form')
   postFormElm.addEventListener('ajax:success', (e) => {
+    debugger
     console.log(e.detail[0])
 
     // ここでshared target pickerを呼び出す

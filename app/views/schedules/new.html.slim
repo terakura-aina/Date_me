@@ -15,14 +15,9 @@ h1.text-4xl.text-center.wf-kokoro
   = f.datetime_select :finish_planned_day_at, class: 'ml-2', :minute_step => 15,:default => Time.now + 1.hours
   br
   br
-  = f.label :place, :行き先, class: 'text-2xl p-2 wf-kokoro'
+  = f.label :other, :どこでなにする？, class: 'text-2xl p-2 wf-kokoro'
   br
-  = f.text_field :place, class: 'mt-2 border border-gray-400 ml-2'
-  br
-  br
-  = f.label :other, :やりたいこと, class: 'text-2xl p-2 wf-kokoro'
-  br
-  = f.text_area :other, class: 'mt-2 border border-gray-400 ml-2'
+  = f.text_area :other, class: 'wf-kokoro mt-2 border border-gray-400 ml-2',size: "20x5", placeholder: "東京駅でディナーしよう！\n(空欄でもOK)"
 
   br
   br
