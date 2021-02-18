@@ -35,7 +35,7 @@ class SchedulesController < ApplicationController
       p response
     else
       respond_to do |format|
-        format.json { render status: 400, json: { status: 400, message: 'Bad Request' } }
+        format.json { render json: { message: 'Bad Request' }, status: 400 }
         format.html
         format.js { render 'new' }
       end
