@@ -1,5 +1,8 @@
 class TodayMission < ApplicationRecord
   belongs_to :schedule
-  belongs_to :invited_mission, class_name: 'Mission'
-  belongs_to :partner_mission, class_name: 'Mission'
+  belongs_to :user
+  belongs_to :mission
+
+  enum user_status: { invited: 0, partner: 1 }
+  enum mission_status: { until: 0, done: 1 }
 end

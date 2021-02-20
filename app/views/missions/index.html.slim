@@ -6,15 +6,14 @@ table
 
   tbody
     -if params[:user] == 'invited'
-      - @schedule.invited_missions.each do |mission|
+      - @schedule.today_missions.where(user_status: "invited").each do |today|
           tr
-            td.px-4.ml-2.p-2.wf-kokoro = mission.body
-            td.btn.rounded.bg-blue-300.hover:bg-blue-400 = '未完了'
+            td.px-4.ml-2.p-2.wf-kokoro = today.mission.body
+            td id="mission-#{today.id}" = render 'missions/mission', today: today
 
     -if params[:user] == 'partner'
-      - @schedule.partner_missions.each do |mission|
+      - @schedule.today_missions.where(user_status: "partner").each do |today|
           tr
-            td.px-4.ml-2.p-2.wf-kokoro = mission.body
-            td.wf-kokoro.btn.rounded.bg-blue-300.hover:bg-blue-400 = '未完了'
-
+            td.px-4.ml-2.p-2.wf-kokoro = today.mission.body
+            td id="mission-#{today.id}" = render 'missions/mission', today: today
 = javascript_pack_tag 'missions/index'

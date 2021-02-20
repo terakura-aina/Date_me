@@ -56,7 +56,8 @@ namespace :push do
       p response
 
       # TodayMissionテーブルにミッションを保存する
-      TodayMission.create(schedule_id: schedule.id, invited_mission_id: invited_mission.id, partner_mission_id: partner_mission.id)
+      TodayMission.create(schedule_id: schedule.id, mission_id: invited_mission.id, user_id: schedule.make_plan.invited.id, user_status: 0)
+      TodayMission.create(schedule_id: schedule.id, mission_id: partner_mission.id, user_id: schedule.make_plan.partner.id, user_status: 1)
     end
   end
 

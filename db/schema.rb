@@ -43,13 +43,15 @@ ActiveRecord::Schema.define(version: 2021_02_15_052314) do
 
   create_table "today_missions", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "schedule_id", null: false
-    t.bigint "invited_mission_id", null: false
-    t.bigint "partner_mission_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "mission_id", null: false
+    t.integer "user_status", null: false
+    t.integer "mission_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["invited_mission_id"], name: "index_today_missions_on_invited_mission_id"
-    t.index ["partner_mission_id"], name: "index_today_missions_on_partner_mission_id"
+    t.index ["mission_id"], name: "index_today_missions_on_mission_id"
     t.index ["schedule_id"], name: "index_today_missions_on_schedule_id"
+    t.index ["user_id"], name: "index_today_missions_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -62,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_052314) do
   add_foreign_key "make_plans", "users", column: "invited_id"
   add_foreign_key "make_plans", "users", column: "partner_id"
   add_foreign_key "schedules", "users", column: "invited_id"
-  add_foreign_key "today_missions", "missions", column: "invited_mission_id"
-  add_foreign_key "today_missions", "missions", column: "partner_mission_id"
+  add_foreign_key "today_missions", "missions"
   add_foreign_key "today_missions", "schedules"
+  add_foreign_key "today_missions", "users"
 end

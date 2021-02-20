@@ -1,0 +1,5 @@
+#mission
+  - if today.mission_status == 'until'
+    = link_to '未完了', today_mission_path(today),method: :put, remote: true,class: 'mission-done'
+  - else
+    = link_to '完了', today_mission_path(today),method: :put, remote: true,class: 'mission-until'
