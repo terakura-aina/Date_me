@@ -18,6 +18,6 @@ p.wf-kokoro.text-2xl.p-2
   = link_to "OK!", schedule_path(@schedule.id), data: { confirm: 'パートナーにOKの通知をします。よろしいですか?' },
                                                  method: :PATCH, id: 'ok', remote: true, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded-full'
   = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後から返答を変更することはできません。よろしいですか?' },
-                                                 method: :DELETE, id: 'ng',class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
+                                                 method: :DELETE, id: 'ng',remote: true, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
 
 = javascript_pack_tag 'schedules/edit'

@@ -68,6 +68,17 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule = Schedule.find(params[:id])
+    message = {
+        "type": "text",
+        "text": "お誘いしたデートはNGだったようです…別日を提案してみましょう！",
+      }
+      client = Line::Bot::Client.new { |config|
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+      }
+      response = client.push_message(@schedule.invited.line_user_id, message)
+      p response
+
     @schedule.destroy!
   end
 

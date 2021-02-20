@@ -9,12 +9,12 @@ table
       - @schedule.invited_missions.each do |mission|
           tr
             td.px-4.ml-2.p-2.wf-kokoro = mission.body
-            td.btn.rounded.bg-blue-300.hover:bg-blue-500 = '未完了'
+            td.btn.rounded.bg-blue-300.hover:bg-blue-400 = '未完了'
 
     -if params[:user] == 'partner'
       - @schedule.partner_missions.each do |mission|
           tr
             td.px-4.ml-2.p-2.wf-kokoro = mission.body
-            td.wf-kokoro.btn.rounded.bg-blue-300.hover:bg-blue-500 = '未完了'
+            td.wf-kokoro.btn.rounded.bg-blue-300.hover:bg-blue-400 = '未完了'
 
 = javascript_pack_tag 'missions/index'
