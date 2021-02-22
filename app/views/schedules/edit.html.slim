@@ -1,3 +1,5 @@
+= javascript_pack_tag 'schedules/edit'
+
 h1.text-4xl.text-center.wf-kokoro
   |スケジュール内容
 p.wf-kokoro.text-2xl.p-2
@@ -15,9 +17,7 @@ p.wf-kokoro.text-2xl.p-2
   = @schedule.other
   br
   br
-  = link_to "OK!", schedule_path(@schedule.id), data: { confirm: 'パートナーにOKの通知をします。よろしいですか?' },
-                                                 method: :PATCH, id: 'ok', remote: true, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded-full'
-  = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後から返答を変更することはできません。よろしいですか?' },
-                                                 method: :DELETE, id: 'ng',remote: true, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
-
-= javascript_pack_tag 'schedules/edit'
+  - unless @schedule.invited == current_user
+    = link_to "確認しました!", schedule_path(@schedule.id), method: :PATCH, id: 'ok', remote: true, class: 'wf-kokoro bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded-full'
+    = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後からキャンセルと取り消すことはできません。よろしいですか?' },
+                                                 method: :DELETE, id: 'ng',remote: true, class: 'wf-kokoro bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'

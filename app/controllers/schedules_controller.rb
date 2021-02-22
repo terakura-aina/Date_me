@@ -43,9 +43,7 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find_by(token: params[:token])
-    if @schedule == nil || @schedule.answer == 'ok'
-      raise ActiveRecord::RecordNotFound
-    end
+
   end
 
   def update
@@ -55,29 +53,47 @@ class SchedulesController < ApplicationController
     @schedule.save!(validate: false)
     render json: @schedule
     message = {
-        "type": "text",
-        "text": "デートがOKされました！",
-      }
-      client = Line::Bot::Client.new { |config|
-      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
-      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
-      }
-      response = client.push_message(@schedule.invited.line_user_id, message)
-      p response
+      "type": "text",
+      "text": "デートがOKされました！",
+    }
+    client = Line::Bot::Client.new { |config|
+    config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+    config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+    }
+    response = client.push_message(@schedule.invited.line_user_id, message)
+    p response
   end
 
   def destroy
     @schedule = Schedule.find(params[:id])
     message = {
-        "type": "text",
-        "text": "お誘いしたデートはNGだったようです…別日を提案してみましょう！",
-      }
-      client = Line::Bot::Client.new { |config|
-      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
-      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
-      }
-      response = client.push_message(@schedule.invited.line_user_id, message)
-      p response
+      "type": "text",
+      "text": "お誘いしたデートはNGだったようです…別日を提案してみましょう！"
+    }
+    client = Line::Bot::Client.new { |config|
+    config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+    config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+    }
+    response = client.push_message(@schedule.invited.line_user_id, message)
+    p response
+
+    message = {
+      "type": "text",
+      "text": "デートをキャンセルしました$",
+      "emojis": [
+          {
+            "index": 13,
+            "productId": "5ac1bfd5040ab15980c9b435",
+            "emojiId": "046"
+          }
+        ]
+    }
+    client = Line::Bot::Client.new { |config|
+    config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+    config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+    }
+    response = client.push_message(@schedule.invited.line_user_id, message)
+    p response
 
     @schedule.destroy!
   end
