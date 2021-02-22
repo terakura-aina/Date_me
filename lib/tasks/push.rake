@@ -3,7 +3,7 @@ namespace :push do
 
   task push_mission: :environment do
     schedules = Schedule.where('start_planned_day_at <= ? and finish_planned_day_at > ? and answer = ?', Time.now, Time.now, 1)
-    inviter_mission = Mission.order("RAND()").first
+    invited_mission = Mission.order("RAND()").first
     partner_mission = Mission.order("RAND()").first
     schedules.each do |schedule|
       message = {
@@ -18,7 +18,7 @@ namespace :push do
                 {
                   "type": "uri",
                   "label": "ミッションを確認する",
-                  "uri": "https://liff.line.me/1655665365-robLXJ1P/missions/#{schedule.token}/inviter"
+                  "uri": "https://liff.line.me/1655665365-robLXJ1P/missions/#{schedule.token}/invited"
                 }
             ]
         }
@@ -27,7 +27,7 @@ namespace :push do
           config.channel_secret = ENV['LINE_CHANNEL_SECRET']
           config.channel_token = ENV['LINE_CHANNEL_TOKEN']
       }
-      response = client.push_message(schedule.make_plan.inviter.line_user_id, message)
+      response = client.push_message(schedule.make_plan.invited.line_user_id, message)
       p response
 
       # partnerにミッションを送る
@@ -56,7 +56,8 @@ namespace :push do
       p response
 
       # TodayMissionテーブルにミッションを保存する
-      TodayMission.create(schedule_id: schedule.id, inviter_mission_id: inviter_mission.id, partner_mission_id: partner_mission.id)
+      TodayMission.create(schedule_id: schedule.id, mission_id: invited_mission.id, user_id: schedule.make_plan.invited.id, user_status: 0)
+      TodayMission.create(schedule_id: schedule.id, mission_id: partner_mission.id, user_id: schedule.make_plan.partner.id, user_status: 1)
     end
   end
 
@@ -71,7 +72,7 @@ namespace :push do
 	      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
 	      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
       }
-      user_ids = [schedule.make_plan.inviter.line_user_id, schedule.make_plan.partner.line_user_id]
+      user_ids = [schedule.make_plan.invited.line_user_id, schedule.make_plan.partner.line_user_id]
       client.multicast(user_ids, message)
     end
   end

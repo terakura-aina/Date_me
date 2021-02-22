@@ -1,0 +1,7 @@
+#mission
+  - if today.mission_status == 'until'
+    = link_to today_mission_path(today),method: :put, remote: true,class: 'mission-done'
+      .far.fa-heart.text-gray-400.text-2xl
+  - else
+    = link_to today_mission_path(today),method: :put, remote: true,class: 'mission-until'
+      .fas.fa-heart.text-pink-500.text-2xl

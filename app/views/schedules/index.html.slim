@@ -1,2 +1,16 @@
-<h1>Schedules#index</h1>
-<p>Find me in app/views/schedules/index.html.erb</p>
+h1.text-4xl.text-center.wf-kokoro デートの予定一覧
+
+table
+  thead
+  br
+
+  tbody
+    - if @schedules.where(answer: 1).present?
+      - @schedules.where(answer: 1).each do |schedule|
+        tr.wf-kokoro.bg-yellow-200.text-xl.p-2
+          td = l schedule.start_planned_day_at
+          td = '〜'
+          td = schedule.finish_planned_day_at.strftime("%R")
+          td = schedule.other
+
+= javascript_pack_tag 'schedules/index'

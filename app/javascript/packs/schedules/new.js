@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "type": "template",
         "altText": "デートのおさそいが届いています",
         "template": {
-            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613550347/83836468_anvcuq.jpg",
+            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613642190/girl_ymjnoj.jpg",
             "type": "buttons",
             "title": "デートのおさそい",
             "text": "大好きなあなたとデートに行きたいです！",

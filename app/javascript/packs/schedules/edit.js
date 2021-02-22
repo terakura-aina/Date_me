@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
   .then(() => {
+    const postForm = document.querySelector('#ng')
+    postForm.addEventListener('ajax:success', () => {
+      liff.closeWindow();
+    })
     const postFormElm = document.querySelector('#ok')
     postFormElm.addEventListener('ajax:success', (e) => {
       console.log(e.detail[0])

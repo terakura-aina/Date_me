@@ -1,0 +1,2 @@
+module TodayMissionsHelper
+end
