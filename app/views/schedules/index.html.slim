@@ -1,16 +1,14 @@
+= javascript_pack_tag 'schedules/index'
 h1.text-4xl.text-center.wf-kokoro デートの予定一覧
 
-table
-  thead
-  br
+- if @schedules.where(answer: 1).present?
+  - @schedules.where(answer: 1).each do |schedule|
+    - debugger
+    - if schedule.invited == current_user || schedule.make_plan.partner_id == current_user.id
+      div.wf-kokoro.bg-yellow-200.text-xl.p-2.mt-2.border.rounded-lg.w-64.m-12
+        = l schedule.start_planned_day_at
+        = '〜'
+        = schedule.finish_planned_day_at.strftime("%R")
+        br
+        = schedule.other
 
-  tbody
-    - if @schedules.where(answer: 1).present?
-      - @schedules.where(answer: 1).each do |schedule|
-        tr.wf-kokoro.bg-yellow-200.text-xl.p-2
-          td = l schedule.start_planned_day_at
-          td = '〜'
-          td = schedule.finish_planned_day_at.strftime("%R")
-          td = schedule.other
-
-= javascript_pack_tag 'schedules/index'
