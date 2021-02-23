@@ -1,26 +1,26 @@
-h1.text-4xl.text-center.wf-kokoro
-  |デートのおさそい
+  h1.text-4xl.text-center.wf-kokoro.mt-4
+    |デートのおさそい
 
-#error_explanation
+  #error_explanation
 
-= form_with(model: @schedule, id: 'form', local: false) do |f|
-  br
-  = f.label :start_planned_day_at, :いつから, class: 'text-2xl p-2 wf-kokoro'
-  br
-  = f.datetime_select :start_planned_day_at, class: 'rounded-md', :minute_step => 15,:default => Time.now + 1.hours
-  br
-  br
-  = f.label :finish_planned_day_at, :いつまで, class: 'text-2xl p-2 wf-kokoro'
-  br
-  = f.datetime_select :finish_planned_day_at, class: 'ml-2', :minute_step => 15,:default => Time.now + 1.hours
-  br
-  br
-  = f.label :other, :どこでなにする？, class: 'text-2xl p-2 wf-kokoro'
-  br
-  = f.text_area :other, class: 'wf-kokoro mt-2 border border-gray-400 ml-2',size: "20x5", placeholder: "東京駅でディナーしよう！\n(空欄でもOK)"
+  = form_with(model: @schedule, id: 'form', local: false) do |f|
+    br
+    = f.label :start_planned_day_at, :いつから, class: 'text-2xl p-2 wf-kokoro'
+    br
+    = f.datetime_select :start_planned_day_at, class: 'rounded-md', :minute_step => 15,:default => Time.now + 1.hours
+    br
+    br
+    = f.label :finish_planned_day_at, :いつまで, class: 'text-2xl p-2 wf-kokoro'
+    br
+    = f.datetime_select :finish_planned_day_at, class: 'ml-2', :minute_step => 15,:default => Time.now + 1.hours
+    br
+    br
+    = f.label :other, :どこでなにする？, class: 'text-2xl p-2 wf-kokoro'
+    br
+    = f.text_area :other, class: 'wf-kokoro mt-2 border border-gray-400 ml-2',size: "20x5", placeholder: "東京駅でディナーしよう！\n(空欄でもOK)"
 
-  br
-  br
-  = f.submit :相手を選択する, class: 'getProfile bg-yellow-200 hover:bg-yellow-300 text-3xl rounded-full py-2 px-4 ml-2 wf-kokoro'
+    br
+    br
+    = f.submit :相手を選択する, class: 'getProfile bg-yellow-300 hover:bg-yellow-400 text-3xl rounded-full py-2 px-4 ml-2 wf-kokoro shadow-lg'
 
-  = javascript_pack_tag 'schedules/new'
+    = javascript_pack_tag 'schedules/new'

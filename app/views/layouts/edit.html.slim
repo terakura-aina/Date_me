@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title
+      | Date me!
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    script[charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"]
+    link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet"
+    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+    link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+  body.text-gray-600.font-sans.font
+    = yield
