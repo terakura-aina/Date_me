@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  layout false
+  layout 'setting'
 
   def terms; end
   def privacy; end

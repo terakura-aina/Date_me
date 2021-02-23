@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   // idTokenからユーザーIDを取得し、userテーブルに保存するための処理
   .then(() => {
-    debugger
     const idToken = liff.getIDToken()
     console.log(idToken)
     const body =`idToken=${idToken}`

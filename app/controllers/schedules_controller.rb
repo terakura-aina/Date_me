@@ -2,7 +2,6 @@ class SchedulesController < ApplicationController
   require 'net/http'
   require 'uri'
   def index
-    debugger
     # 終了予定時間が今よりあと&answerカラムがOKのものを@schedulesに代入
     @schedules = Schedule.where('finish_planned_day_at > ? and answer = ?', Time.now, 1).order(start_planned_day_at: :asc)
   end
@@ -47,6 +46,7 @@ class SchedulesController < ApplicationController
     if @schedule == nil || @schedule.answer == 'ok'
       raise ActiveRecord::RecordNotFound
     end
+    render layout: 'edit'
   end
 
   def update

@@ -1,23 +1,26 @@
 = javascript_pack_tag 'schedules/edit'
 
-h1.text-4xl.text-center.wf-kokoro
+h1.text-4xl.text-center.wf-kokoro.mt-4
   |スケジュール内容
-p.wf-kokoro.text-2xl.p-2
-  |開始時間:
-  br
-  = l @schedule.start_planned_day_at
-p.wf-kokoro.text-2xl.p-2
-  |終了予定時間:
-  br
-  = l @schedule.finish_planned_day_at
-  br
-p.wf-kokoro.text-2xl.p-2
-  |やりたいこと:
-  br
-  = @schedule.other
-  br
-  br
+div.border.rounded-t.border-gray-500
+  p.wf-kokoro.text-2xl.p-2
+    |開始時間:
+    br
+    = l @schedule.start_planned_day_at
+  p.wf-kokoro.text-2xl.p-2
+    |終了予定時間:
+    br
+    = l @schedule.finish_planned_day_at
+    br
+  p.wf-kokoro.text-2xl.p-2
+    |やりたいこと:
+    br
+    = @schedule.other
 
-    = link_to "確認しました!", schedule_path(@schedule.id), method: :PATCH, id: 'ok', remote: true, class: 'wf-kokoro bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded-full'
-    = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後からキャンセルと取り消すことはできません。よろしいですか?' },
-                                                 method: :DELETE, id: 'ng',remote: true, class: 'wf-kokoro bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
+br
+br
+div.edit-container.wf-kokoro.font-bold
+  = link_to "確認しました!", schedule_path(@schedule.id), method: :PATCH, id: 'ok', remote: true, class: 'bg-yellow-300 hover:bg-yellow-400 rounded text-2xl py-2 px-4 m-3 shadow-lg'
+  = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後からキャンセルと取り消すことはできません。よろしいですか?' },
+                                                 method: :DELETE, id: 'ng',remote: true, class: 'bg-yellow-200 hover:bg-yellow-300 rounded text-2xl py-2 px-4 m-3 shadow-lg'
+

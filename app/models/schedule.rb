@@ -41,7 +41,7 @@ class Schedule < ApplicationRecord
     elsif finish_planned_day_at.blank?
       errors.add(:finish_planned_day_at, "は入力必須です")
     elsif self.start_planned_day_at.day != self.finish_planned_day_at.day
-      errors.add(:finish_planned_day_at, "と同日のみ登録できます")
+      errors.add(:finish_planned_day_at, "は開始日と同日のみ登録できます")
     end
   end
 end
