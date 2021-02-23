@@ -15,4 +15,6 @@ class UsersController < ApplicationController
       render :json => user
     end
   end
+
+  def lp; end
 end
