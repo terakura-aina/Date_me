@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+class SessionsController < ApplicationController
+  def show; end
+
   def create
     idToken = params[:idToken]
     channelId = '1655665365'
@@ -9,10 +11,10 @@ class UsersController < ApplicationController
     if user.nil?
       user = User.create(line_user_id: line_user_id)
       session[:user_id] = user.id
-      render :json => user
+      redirect_to schedules_path
     elsif user
       session[:user_id] = user.id
-      render :json => user
+      redirect_to schedules_path
     end
   end
 end
