@@ -10,7 +10,7 @@ namespace :push do
         "type": "template",
         "altText": "ミッションが届いています",
         "template": {
-            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613557284/72821782_ugfjcf.jpg",
+            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1614183954/2021.2.24rose-5_f4u1hp.jpg",
             "type": "buttons",
             "title": "デートを楽しんでいるお二人へ",
             "text": "新しいミッションが届きました！",
@@ -35,7 +35,7 @@ namespace :push do
         "type": "template",
         "altText": "ミッションが届いています",
         "template": {
-            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613557284/72821782_ugfjcf.jpg",
+            "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1614183954/2021.2.24rose-5_f4u1hp.jpg",
             "type": "buttons",
             "title": "デートを楽しんでいるお二人へ",
             "text": "新しいミッションが届きました！",

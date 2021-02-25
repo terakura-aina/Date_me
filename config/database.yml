@@ -52,5 +52,6 @@ test:
 production:
   <<: *default
   database: Date_me_production
-  username: Date_me
-  password: <%= ENV['DATE_ME_DATABASE_PASSWORD'] %>
+  username: admin
+  password: afl810afl
+  host: database-1.chb99xms09iy.ap-northeast-1.rds.amazonaws.com

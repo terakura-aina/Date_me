@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
+gem 'mini_racer', platforms: :ruby
 
 gem 'slim-rails'
 gem 'html2slim'
@@ -56,6 +57,16 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
+
+  gem 'capistrano'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-nginx'
+  gem 'capistrano-yarn'
 
 #エラー画面をわかりやすくしてくれる&ブラウザ上でirbを使えるようにする
   gem 'better_errors'
