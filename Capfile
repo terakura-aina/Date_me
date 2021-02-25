@@ -12,6 +12,7 @@ require "capistrano/nginx"
 
 install_plugin Capistrano::SCM::Git
 install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma::Daemon
 install_plugin Capistrano::Puma::Nginx
 
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
