@@ -18,17 +18,17 @@ set :puma_error_log, "/var/www/Date_me/shared/log/puma.access.log"
 set :puma_preload_app, true
 set :branch, ENV['BRANCH'] || "main"
 
-namespace :puma do
-  desc 'Create Directories for Puma Pids and Socket'
-  task :make_dirs do
-    on roles(:app) do
-      execute "mkdir /var/www/Date_me/shared/tmp/sockets -p"
-      execute "mkdir /var/www/Date_me/shared/tmp/pids -p"
-    end
-  end
+# namespace :puma do
+#   desc 'Create Directories for Puma Pids and Socket'
+#   task :make_dirs do
+#     on roles(:app) do
+#       execute "mkdir /var/www/Date_me/shared/tmp/sockets -p"
+#       execute "mkdir /var/www/Date_me/shared/tmp/pids -p"
+#     end
+#   end
 
-  before :start, :make_dirs
-end
+#   before :start, :make_dirs
+# end
 
 namespace :deploy do
   desc 'upload important files'
