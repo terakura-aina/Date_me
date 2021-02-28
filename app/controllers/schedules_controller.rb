@@ -71,7 +71,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     message = {
       "type": "text",
-      "text": "お誘いしたデートはNGだったようです…別日を提案してみましょう！"
+      "text": "デートがキャンセルされました…"
     }
     client = Line::Bot::Client.new { |config|
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']

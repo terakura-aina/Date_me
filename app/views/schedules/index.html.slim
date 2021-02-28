@@ -4,11 +4,12 @@ h1.text-4xl.text-center.wf-kokoro デートの予定一覧
 - if @schedules.where(answer: 1).present?
   - @schedules.where(answer: 1).each do |schedule|
     - if schedule.invited == current_user || schedule.make_plan.partner_id == current_user.id
-      div.wf-kokoro.bg-yellow-200.text-2xl.p-2.mt-2.border.rounded-lg.w-64.m-12
-        = l schedule.start_planned_day_at
-        = '〜'
-        = schedule.finish_planned_day_at.strftime("%R")
-        br
-        = schedule.other
-        = link_to "予定を取り消す", schedule_path(schedule.id), data: { confirm: '後からキャンセルと取り消すことはできません。よろしいですか?' },
-                                                 method: :DELETE, id: 'ng',remote: true, class: 'bg-yellow-500 hover:bg-yellow-600 rounded text-lg py-1 px-2 m-3 shadow-lg right-0'
+      div id="schedule-#{schedule.id}"
+        div.wf-kokoro.bg-yellow-200.text-2xl.p-2.mt-2.border.rounded-lg.w-64.m-12
+          = l schedule.start_planned_day_at
+          = '〜'
+          = schedule.finish_planned_day_at.strftime("%R")
+          br
+          = schedule.other
+          = link_to "予定を取り消す", schedule_path(schedule.id), data: { confirm: '後からキャンセルと取り消すことはできません。よろしいですか?' },
+                                                  method: :DELETE, id: 'ng',remote: true, class: 'bg-yellow-500 hover:bg-yellow-600 rounded text-lg py-1 px-2 m-3 shadow-lg right-0'
