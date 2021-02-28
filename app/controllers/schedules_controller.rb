@@ -46,7 +46,6 @@ class SchedulesController < ApplicationController
     if @schedule == nil || @schedule.answer == 'ok'
       raise ActiveRecord::RecordNotFound
     end
-    render layout: 'edit'
   end
 
   def update
@@ -71,7 +70,14 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     message = {
       "type": "text",
-      "text": "デートがキャンセルされました…"
+      "text": "デートがキャンセルされました$",
+      "emojis": [
+          {
+            "index": 14,
+            "productId": "5ac1bfd5040ab15980c9b435",
+            "emojiId": "046"
+          }
+        ]
     }
     client = Line::Bot::Client.new { |config|
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
