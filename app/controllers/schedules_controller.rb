@@ -1,6 +1,11 @@
 class SchedulesController < ApplicationController
   require 'net/http'
   require 'uri'
+
+  def show
+    render layout: 'top'
+  end
+
   def index
     # 終了予定時間が今よりあと&answerカラムがOKのものを@schedulesに代入
     @schedules = Schedule.where('finish_planned_day_at > ? and answer = ?', Time.now, 1).order(start_planned_day_at: :asc)
