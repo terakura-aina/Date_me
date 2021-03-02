@@ -1,7 +1,7 @@
 div.top-container
-br
 div.text-gray-600.background-color
   div.text-center.wf-kokoro
+    br
     = 'ちょっとマンネリしてきた夫婦に'
     br
     = '久しぶりのドキドキを提供してくれる、'
@@ -31,6 +31,10 @@ div.text-gray-600.background-color
     br
     br
     br
+  div.imgcenter
+  br
+  br
+  br
   div
     img src="images/howto1.png"
     br
@@ -57,10 +61,10 @@ div.text-gray-600.background-color
     br
     br
     br
-    div
+  div
     img src="images/howto3.png"
     br
-    div.text-center.wf-kokoro.text-xl
+  div.text-center.wf-kokoro.text-xl
     = '3.パートナーにお誘いが届きます。'
     br
     = '「確認しました！」ボタンを押したら'
@@ -69,3 +73,44 @@ div.text-gray-600.background-color
     br
     br
     br
+  div
+    img src="images/howto4.png"
+    br
+  div.text-center.wf-kokoro.text-xl
+    = '4.デートが始まると30分に1度'
+    br
+    = 'ミッションが届きます。'
+    br
+    br
+    = 'ミッションが完了したら'
+    br
+    = 'ハートをクリックして'
+    br
+    = '完了ステータスに変更しましょう！'
+    br
+    br
+    br
+  div.imgcenter2
+  div.text-center.wf-kokoro.text-xl
+    = 'デートの後は'
+    br
+    = 'どんなミッションが来ていたのか'
+    br
+    = 'いくつクリアできたのか'
+    br
+    = "見せ合いっこしても楽しいかも♡"
+    br
+    br
+  div.lineadd
+    img src="https://qr-official.line.me/sid/M/141wflym.png"
+    br
+    <a href="https://lin.ee/BTj6snO"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+    br
+footer.bg-gray-300.text-center
+  = link_to '/terms', class: 'm-8 text-blue-600' do
+    | 利用規約
+  br
+  = link_to '/privacy', class: 'm-8 text-blue-600' do
+    | プライバシーポリシー
+  div.text-lg
+    = '© 2021 Date me.'

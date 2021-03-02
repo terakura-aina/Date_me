@@ -13,6 +13,26 @@
   margin:0 auto;
 }
 
+.imgcenter {
+  background-image: url("/images/howto11.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 225px;
+  background-size: cover;
+}
+
+.imgcenter2 {
+  background-image: url("/images/howto5.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 300px;
+  background-size: cover;
+}
+
 .background-color {
   background-color: rgb(225, 211, 207);
   margin-left: calc( ( 100% - 100vw ) / 2 );
@@ -20,4 +40,8 @@
   margin-top: calc( ( 100% - 100vw ) / 2 );
   width: 100vw;
   font-weight: 900;
+}
+
+footer {
+  width: 100vw;
 }
