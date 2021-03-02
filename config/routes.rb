@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/terms' => 'settings#terms'
   get '/privacy' => 'settings#privacy'
   get '/top' => 'settings#top'
+  get 'description' => 'settings#description'
 
   post '/callback' => 'linebot#callback'
 end
