@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :today_mission do
-    schedule { nil }
-    invited_mission { nil }
-    partner_mission { nil }
+    schedule { 1 }
+    invited_mission { 1 }
+    partner_mission { 1 }
   end
 end

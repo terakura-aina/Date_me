@@ -1,0 +1,100 @@
+.wrap {
+  overflow: hidden;
+}
+
+.top-container {
+  background-image: url("/images/top.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 250px;
+  background-size: cover;
+}
+
+.lineadd {
+  width:10em;
+  margin:0 auto;
+}
+
+.logo {
+  background-image: url("/images/logo.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 100px;
+  background-size: cover;
+}
+
+.enjoy {
+  background-image: url("/images/enjoy.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 150px;
+  background-size: cover;
+}
+
+.imgcenter {
+  background-image: url("/images/howto11.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 250px;
+  background-size: cover;
+}
+
+.imgcenter2 {
+  background-image: url("/images/howto5.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 300px;
+  background-size: cover;
+}
+
+.imgcenter3 {
+  background-image: url("/images/howto22.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 250px;
+  background-size: cover;
+}
+
+.imgcenter4 {
+  background-image: url("/images/howto33.png");
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  height: 250px;
+  background-size: cover;
+}
+
+.background-color {
+  background-color: rgb(225, 211, 207);
+  margin-left: calc( ( 100% - 100vw ) / 2 );
+  margin-right: calc( ( 100% - 100vw ) / 2 );
+  margin-top: calc( ( 100% - 100vw ) / 2 );
+  width: 100vw;
+  font-weight: 900;
+}
+
+footer {
+  width: 100vw;
+}
+
+.mypattern .slick-slide:not(.slick-center) {
+  -webkit-filter: opacity(30%);
+  -moz-filter: opacity(30%);
+  -o-filter: opacity(30%);
+  -ms-filter: opacity(30%);
+  filter: opacity(30%);
+  transition: 0.2s linear;
+}

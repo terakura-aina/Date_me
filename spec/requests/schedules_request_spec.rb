@@ -20,7 +20,7 @@ RSpec.describe "Schedules", type: :request do
 
   describe "GET /index" do
     xit "returns http success" do
-      get "/schedules/index"
+      get "/schedules"
       expect(response).to have_http_status(:success)
     end
   end
@@ -39,8 +39,8 @@ RSpec.describe "Schedules", type: :request do
     end
   end
 
-  describe "GET /destroy" do
-    it "returns http success" do
+  describe "DELETE /destroy" do
+    xit "returns http success" do
       delete "/schedules/1"
       expect(response).to have_http_status(:success)
     end

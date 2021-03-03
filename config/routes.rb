@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/schedules/:token' => 'schedules#edit'
   get '/terms' => 'settings#terms'
   get '/privacy' => 'settings#privacy'
+  get '/top' => 'settings#top'
+  get 'description' => 'settings#description'
 
   post '/callback' => 'linebot#callback'
 end

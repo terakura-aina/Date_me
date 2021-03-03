@@ -11,6 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
   .then(() => {
+
+    // partnerのline_user_idを保存するための処理
+    const idToken = liff.getIDToken()
+    console.log(idToken)
+    const body =`idToken=${idToken}`
+    const request = new Request('/users', {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+        'X-CSRF-Token': token
+      },
+      method: 'POST',
+      body: body
+    });
+
+    fetch(request)
+    .then(response => response.json())
+    .then(data => {
+      dataId = data.id
+    })
+
     const postForm = document.querySelector('#ng')
     postForm.addEventListener('ajax:success', () => {
       liff.closeWindow();
@@ -20,25 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(e.detail[0])
       const scheduleToken = e.detail[0].token
 
-      // partnerのline_user_idを保存するための処理
-      const idToken = liff.getIDToken()
-      console.log(idToken)
-      const body =`idToken=${idToken}`
-      const request = new Request('/users', {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-          'X-CSRF-Token': token
-        },
-        method: 'POST',
-        body: body
-      });
-
-      fetch(request)
-      .then(response => response.json())
-      .then(data => {
-        dataId = data.id
-      })
-      .then(() => {
       // make_plansテーブルに保存するための処理
         const data =`idToken=${idToken}&dataId=${dataId}&scheduleToken=${scheduleToken}`
         const req = new Request('/make_plans', {
@@ -55,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           data_id = data.id
         })
-      })
       .then(() => {
         liff.closeWindow();
       })

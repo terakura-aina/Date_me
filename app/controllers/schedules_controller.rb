@@ -1,6 +1,11 @@
 class SchedulesController < ApplicationController
   require 'net/http'
   require 'uri'
+
+  def show
+    render layout: 'top'
+  end
+
   def index
     # 終了予定時間が今よりあと&answerカラムがOKのものを@schedulesに代入
     @schedules = Schedule.where('finish_planned_day_at > ? and answer = ?', Time.now, 1).order(start_planned_day_at: :asc)
@@ -11,6 +16,7 @@ class SchedulesController < ApplicationController
   end
 
   def create
+    debugger
     user = User.find(session[:user_id])
     @schedule = Schedule.new(schedule_params)
     if @schedule.update(token: SecureRandom.hex(32),invited_id: user.id)
@@ -46,7 +52,6 @@ class SchedulesController < ApplicationController
     if @schedule == nil || @schedule.answer == 'ok'
       raise ActiveRecord::RecordNotFound
     end
-    render layout: 'edit'
   end
 
   def update
@@ -71,7 +76,14 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     message = {
       "type": "text",
-      "text": "デートがキャンセルされました…"
+      "text": "デートがキャンセルされました$",
+      "emojis": [
+          {
+            "index": 14,
+            "productId": "5ac1bfd5040ab15980c9b435",
+            "emojiId": "046"
+          }
+        ]
     }
     client = Line::Bot::Client.new { |config|
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']

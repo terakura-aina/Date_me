@@ -62,11 +62,18 @@ namespace :push do
   end
 
   task push_remind: :environment do
-    schedules = Schedule.where('start_planned_day_at <= ? and start_planned_day_at >= ? and answer = ?', Time.now.since(1.hours), Time.now.since(1.hours).since(1.minutes), 1)
+    schedules = Schedule.where('start_planned_day_at = ? and answer = ?', Time.now.since(1440.minutes), 1)
     schedules.each do |schedule|
       message = {
         type: 'text',
-        text: 'デート1時間前です！'
+        text: '明日はデートの日です！楽しいデートになりますように$',
+        "emojis": [
+          {
+            "index": 25,
+            "productId": "5ac1bfd5040ab15980c9b435",
+            "emojiId": "009"
+          }
+        ]
       }
       client = Line::Bot::Client.new{ |config|
 	      config.channel_secret = ENV['LINE_CHANNEL_SECRET']

@@ -3,4 +3,6 @@ class SettingsController < ApplicationController
 
   def terms; end
   def privacy; end
+  def top; end
+  def description; end
 end

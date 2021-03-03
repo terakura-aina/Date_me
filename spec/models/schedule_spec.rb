@@ -42,6 +42,6 @@ RSpec.describe Schedule, type: :model do
   it '開始時間と終了時間が別日の場合、無効である' do
     schedule = build(:schedule, finish_planned_day_at: "2025-02-13 18:00")
     expect(schedule).to be_invalid
-    expect(schedule.errors[:finish_planned_day_at]).to include("と同日のみ登録できます")
+    expect(schedule.errors[:finish_planned_day_at]).to include("は開始日と同日のみ登録できます")
   end
 end
