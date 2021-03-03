@@ -16,7 +16,6 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    debugger
     user = User.find(session[:user_id])
     @schedule = Schedule.new(schedule_params)
     if @schedule.update(token: SecureRandom.hex(32),invited_id: user.id)
