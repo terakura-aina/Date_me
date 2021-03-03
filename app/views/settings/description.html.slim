@@ -1,93 +1,97 @@
-div.text-gray-600.background-color
-  div.imgcenter
-  br
-  br
-  br
-  div id="slick01"
-    div
-      img src="images/howto1.png" alt="使い方1"
-      div.text-center.wf-kokoro.text-xl
-        br
-        br
-        = '1.Date meのLINEを開いて'
-        br
-        = '「デートにお誘いする」ボタンから'
-        br
-        = 'デートの日程を決めましょう'
-    div
-      img src="images/howto2.png" alt="使い方2"
-      div.text-center.wf-kokoro.text-xl
-        = '2.日程を選んで'
-        br
-        = 'やりたいことを入力。'
-        br
-        = '「相手を選択する」ボタンから'
-        br
-        = 'パートナーを選択します'
-        br
-        div.text-pink-600
-          = '※パートナーは必ず1人だけ選んでね！'
-    div
-      img src="images/howto3.png" alt="使い方3"
-      div.text-center.wf-kokoro.text-xl
-        br
-        br
-        = '3.パートナーにお誘いが届きます。'
-        br
-        = '「確認しました！」ボタンを押したら'
-        br
-        = 'あとはデート当日を待つだけ'
-    div
-      img src="images/howto4.png" alt="使い方4"
-      div.text-center.wf-kokoro.text-xl
-        = '4.デートが始まると30分に1度'
-        br
-        = 'ミッションが届きます。'
-        br
-        br
-        = 'ミッションが完了したら'
-        br
-        = 'ハートをクリックして'
-        br
-        = '完了ステータスに変更しましょう！'
+div.wrap
+  div.text-gray-600.background-color
+    div.imgcenter
+    div id="slick01"
+      div
+        img src="images/howto1.png" alt="使い方1"
+        div.text-center.wf-kokoro.text-xl
+          br
+          br
+          = '1.Date meのLINEを開いて'
+          br
+          = '「デートにお誘いする」ボタンを'
+          br
+          = 'タップ'
+      div
+        img src="images/howto2.png" alt="使い方2"
+          div.text-center.wf-kokoro.text-xl
+            br
+            = '2.日程を決めて'
+            br
+            = 'パートナーに送信'
+            br
+            div.text-pink-600
+              = '※パートナーは必ず1人だけ選んでね！'
+      div
+        img src="images/howto3.png" alt="使い方3"
+          div.text-center.wf-kokoro.text-xl
+            br
+            = '3.パートナーにお誘いが届きます。'
+            br
+            = 'パートナーが'
+            br
+            = '「確認しました！」ボタンを押したら'
+            br
+            = 'あとはデート当日を待つだけ'
+      div
+        img src="images/howto4.png" alt="使い方4"
+          div.text-center.wf-kokoro.text-xl
+            br
+            = '4.デートが始まるとお互いのLINEに'
+            br
+            = 'ミッションが届きます'
+            br
+            = 'ミッションをクリアして'
+            br
+            = '素敵なデートにしましょう！'
 
+    br
+    br
+    div.text-center.wf-kokoro.text-2xl
+        = '\Date meを楽しむポイント/'
 
-  div.imgcenter2
-  div.text-center.wf-kokoro.text-xl
-    = 'デートの予定は'
-    br
-    = '「デートの予定を確認」から'
-    br
-    = '確認できます。'
-    br
-    = 'パートナーの名前は表示されないよ！'
-    br
-    br
-    br
-    = 'ミッションの内容は'
-    br
-    = 'お互い秘密！'
-    br
-    = '届く内容はそれぞれ違います。'
-    br
-    br
-    br
-    = 'デートの後は'
-    br
-    = 'どんなミッションが来ていたのか'
-    br
-    = 'いくつクリアできたのか'
-    br
-    = "見せ合いっこしても楽しいかも♡"
+    div.imgcenter2
+    div.text-center.wf-kokoro.text-xl
+      = 'デートの予定は'
+      br
+      = '「デートの予定を確認」から'
+      br
+      = '確認できます。'
+      br
+      = 'パートナーの名前は表示されないよ！'
+      br
+      br
+    div.imgcenter4
+    div.text-center.wf-kokoro.text-xl
+      br
+      = 'ミッションの内容は'
+      br
+      = 'お互い秘密！'
+      br
+      = '届く内容はそれぞれ違います。'
+      br
+      br
+      br
+    div.imgcenter3
+    div.text-center.wf-kokoro.text-xl
+      br
+      = 'デートの後は'
+      br
+      = 'どんなミッションが来ていたのか'
+      br
+      = 'いくつクリアできたのか'
+      br
+      = "見せ合いっこしても楽しいかも♡"
+    div.enjoy
     br
 
-footer.bg-gray-300.text-center
-  = link_to '/terms', class: 'm-8 text-blue-600' do
-    | 利用規約
-  br
-  = link_to '/privacy', class: 'm-8 text-blue-600' do
-    | プライバシーポリシー
-  div.text-lg
-    = '© 2021 Date me'
+  footer.bg-gray-300.text-center
+    = link_to '/terms', class: 'm-8 text-blue-600' do
+      | 利用規約
+    br
+    = link_to '/privacy', class: 'm-8 text-blue-600' do
+      | プライバシーポリシー
+    div.text-lg
+      = '© 2021 Date me'
 
-= javascript_pack_tag 'settings/top'
+  = javascript_pack_tag 'settings/top'
