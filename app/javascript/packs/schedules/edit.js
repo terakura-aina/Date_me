@@ -30,38 +30,39 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       dataId = data.id
     })
-
-    const postForm = document.querySelector('#ng')
-    postForm.addEventListener('ajax:success', () => {
-      liff.closeWindow();
-    })
-    const postFormElm = document.querySelector('#ok')
-    postFormElm.addEventListener('ajax:success', (e) => {
-      console.log(e.detail[0])
-      const scheduleToken = e.detail[0].token
-
-      // make_plansテーブルに保存するための処理
-        const data =`idToken=${idToken}&dataId=${dataId}&scheduleToken=${scheduleToken}`
-        const req = new Request('/make_plans', {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-            'X-CSRF-Token': token
-          },
-          method: 'POST',
-          body: data
-        });
-
-        fetch(req)
-        .then(response => response.json())
-        .then(data => {
-          data_id = data.id
-        })
-      .then(() => {
+    .then(() => {
+      const postForm = document.querySelector('#ng')
+      postForm.addEventListener('ajax:success', () => {
         liff.closeWindow();
       })
-      .catch((err) => {
-        console.log(err.code, err.message);
-      });
+      const postFormElm = document.querySelector('#ok')
+      postFormElm.addEventListener('ajax:success', (e) => {
+        console.log(e.detail[0])
+        const scheduleToken = e.detail[0].token
+
+        // make_plansテーブルに保存するための処理
+          const data =`idToken=${idToken}&dataId=${dataId}&scheduleToken=${scheduleToken}`
+          const req = new Request('/make_plans', {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+              'X-CSRF-Token': token
+            },
+            method: 'POST',
+            body: data
+          });
+
+          fetch(req)
+          .then(response => response.json())
+          .then(data => {
+            data_id = data.id
+          })
+        .then(() => {
+          liff.closeWindow();
+        })
+        .catch((err) => {
+          console.log(err.code, err.message);
+        });
+      })
     })
   })
 })
