@@ -67,6 +67,7 @@ group :development do
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
   gem 'capistrano-nginx'
   gem 'capistrano-yarn'
+  gem 'capistrano-rails-console'
 
 #エラー画面をわかりやすくしてくれる&ブラウザ上でirbを使えるようにする
   gem 'better_errors'
