@@ -1,6 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.15.0"
 
+set :nginx_downstream_uses_ssl, true
 set :application, "Date_me"
 set :repo_url, "git@github.com:terakura-aina/Date_me.git" # 自身のリモートリポジトリURL
 set :user, 'aina'
@@ -19,7 +20,6 @@ set :puma_preload_app, true
 set :branch, ENV['BRANCH'] || "main"
 set :puma_systemctl_bin, '/usr/bin/systemctl'
 set :puma_systemctl_user, :system
-set :nginx_downstream_uses_ssl, true
 
 # namespace :puma do
 #   desc 'Create Directories for Puma Pids and Socket'
