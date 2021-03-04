@@ -1,6 +1,4 @@
-<div style="text-align: center;">
-
-# Date me
+# :bouquet:Date me
 ちょっとマンネリしてきた夫婦に久しぶりのドキドキを提供してくれる、  
 デートサポートサービスです。  
 <br>
@@ -13,13 +11,10 @@
 
 </div>
 
-## App URL
+## :bouquet:App URL(スマートフォンから見ることをおすすめします)
 https://love-dateme.com/top
 
-## 使用画面
-<img src="https://user-images.githubusercontent.com/72124914/109923907-d3197680-7d02-11eb-95b9-0be2a52e9356.jpg" width="320px">
-
-## Date meについて
+## :bouquet:Date meについて
 ### 登場人物
 パートナーと仲良くしたい人
 
@@ -48,12 +43,13 @@ LINE上で、デート中に"ドキドキするアクション"を提案、行�
 ### マーケット
 結婚3年以上たって「ドキドキって何？」となってきた夫婦
 
-## 使用技術
+## :bouquet:使用技術
 * Ruby 2.6.6
 * Rails 6.1.2
 * MYSQL
 * Nginx
 * Puma
+* Capistrano
 * AWS
   * VPC
   * EC2
@@ -64,15 +60,15 @@ LINE上で、デート中に"ドキドキするアクション"を提案、行�
 * RSpec
 * TailwindCSS
 
-## 機能一覧
+## :bouquet:機能一覧
 * ユーザー特定機能(LINE API、fetch)
 * スケジュール作成、更新機能(LIFF、ajax)
 * ミッション通知機能(whenever、messaging API)
 * ミッション完了/未完了機能(ajax)
 * LINE応答機能(messaging API)
 
-## 画面遷移図
+## :bouquet:画面遷移図
 https://xd.adobe.com/view/1720b733-f087-4b61-a494-12e01cba8629-4273/
 
-## ER図
+## :bouquet:ER図
 ![ER図](https://user-images.githubusercontent.com/72124914/109919119-7e263200-7cfb-11eb-955e-f668d374a2ec.png)
