@@ -1,12 +1,10 @@
-<div style="text-align: right;">
-<h1>Date me</h1>
+# Date me
 ちょっとマンネリしてきた夫婦に久しぶりのドキドキを提供してくれる、  
 デートサポートサービスです。  
 ![トップ画像](https://user-images.githubusercontent.com/72124914/109914470-68147380-7cf3-11eb-9c05-4438ad216dcb.png)
 <br>
 ・デート日を決めてもらえれば、あとはアプリがデートのお誘い、当日のアクションのアドバイスをしてくれます。  
 ・当日のアクションは、「ミッション」という形で通知が届くため、リアル体験型ゲームのような感覚で楽しむことができます。  
-</div>
 
 ## App URL
 https://love-dateme.com/top
