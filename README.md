@@ -24,6 +24,7 @@
 https://love-dateme.com/top
 <br>
 <br>
+<br>
 
 ## :bouquet:Date meについて
 ### 登場人物
@@ -55,6 +56,7 @@ LINE上で、デート中に"ドキドキするアクション"を提案、行�
 結婚3年以上たって「ドキドキって何？」となってきた夫婦
 <br>
 <br>
+<br>
 
 ## :bouquet:使用技術
 * Ruby 2.6.6
@@ -84,6 +86,7 @@ LINE上で、デート中に"ドキドキするアクション"を提案、行�
 
 ## :bouquet:画面遷移図
 https://xd.adobe.com/view/1720b733-f087-4b61-a494-12e01cba8629-4273/
+<br>
 <br>
 <br>
 
