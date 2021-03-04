@@ -1,13 +1,18 @@
-## Date me
-![readme](https://user-images.githubusercontent.com/72124914/109914470-68147380-7cf3-11eb-9c05-4438ad216dcb.png)
-ちょっとマンネリしてきた夫婦に  
-久しぶりのドキドキを提供してくれる、  
+# Date me
+![トップ画像](https://user-images.githubusercontent.com/72124914/109914470-68147380-7cf3-11eb-9c05-4438ad216dcb.png)
+ちょっとマンネリしてきた夫婦に久しぶりのドキドキを提供してくれる、  
 デートサポートサービスです。  
-br
-デート日を決めてもらえれば、あとはアプリがデートのお誘い、  
+<br>
+・デート日を決めてもらえれば、あとはアプリがデートのお誘い、  
 当日のアクションのアドバイスをしてくれます。  
-当日のアクションは、「ミッション」という形で通知が届くため、  
+・当日のアクションは、「ミッション」という形で通知が届くため、  
 リアル体験型ゲームのような感覚で楽しむことができます。  
+
+## App URL
+https://love-dateme.com/top
+
+## Date meの使い方
+
 
 ## 登場人物
 パートナーと仲良くしたい人
@@ -41,4 +46,4 @@ LINE上で、デート中に"ドキドキするアクション"を提案、行�
 https://xd.adobe.com/view/1720b733-f087-4b61-a494-12e01cba8629-4273/
 
 ## ER図
-https://drive.google.com/file/d/1AGXLePP-HWYbJKf-u2P9vBgifvpB9Tbj/view?usp=sharing
+![ER図](https://user-images.githubusercontent.com/72124914/109919119-7e263200-7cfb-11eb-955e-f668d374a2ec.png)
