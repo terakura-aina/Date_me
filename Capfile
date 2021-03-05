@@ -10,7 +10,6 @@ require "capistrano/scm/git"
 require "capistrano/puma"
 require "capistrano/nginx"
 require 'capistrano/rails/console'
-require "whenever/capistrano"
 
 install_plugin Capistrano::SCM::Git
 install_plugin Capistrano::Puma

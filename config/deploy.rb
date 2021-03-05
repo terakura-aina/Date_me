@@ -20,7 +20,6 @@ set :puma_preload_app, true
 set :branch, ENV['BRANCH'] || "main"
 set :puma_systemctl_bin, '/usr/bin/systemctl'
 set :puma_systemctl_user, :system
-set :whenever_command, "bundle exec whenever"
 
 # namespace :puma do
 #   desc 'Create Directories for Puma Pids and Socket'
