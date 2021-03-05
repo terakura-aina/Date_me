@@ -33,8 +33,8 @@ class SchedulesController < ApplicationController
         ]
       }
       client = Line::Bot::Client.new { |config|
-      config.channel_secret = "867f1a56f275f18b5c83f81b0603819f"
-      config.channel_token = "AhyjBwaVKaTu5/8qqRIGT3XSZwhZh2+9JhEuvdUrQgcLBgLgFGuQjOukFy+NV3tkgvQ+9cI7owpgf5B/x6PRc9OdC2SDE3H4q0yh8UgmOUBQHrBHGWVELjVO+Q8+HINZIypQ6vQvCS8YhL2rPNWwXAdB04t89/1O/w1cDnyilFU="
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
       }
       response = client.push_message(@schedule.invited.line_user_id, message)
       p response
