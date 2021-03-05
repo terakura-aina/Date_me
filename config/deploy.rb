@@ -21,7 +21,6 @@ set :branch, ENV['BRANCH'] || "main"
 set :puma_systemctl_bin, '/usr/bin/systemctl'
 set :puma_systemctl_user, :system
 set :whenever_command, "bundle exec whenever"
-set :environments "production"
 
 # namespace :puma do
 #   desc 'Create Directories for Puma Pids and Socket'
