@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 
-rails_env = ENV['RAILS_ENV'] || :development
+rails_env = ENV['RAILS_ENV'] || :production
 
 set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
