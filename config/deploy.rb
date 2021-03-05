@@ -6,7 +6,7 @@ set :application, "Date_me"
 set :repo_url, "git@github.com:terakura-aina/Date_me.git" # 自身のリモートリポジトリURL
 set :user, 'aina'
 set :deploy_to, "/var/www/Date_me"
-set :linked_files, %w[config/master.key config/database.yml]
+set :linked_files, %w[config/master.key config/database.yml .env]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle]
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :puma_threds, [4, 16]
@@ -42,6 +42,7 @@ namespace :deploy do
       sudo :mkdir, '-p', '/etc/nginx/sites-enabled'
       sudo :mkdir, '-p', '/etc/nginx/sites-available'
 
+      upload!('.env.production', "/var/www/Date_me/shared/.env")
       upload!('config/database.yml', "/var/www/Date_me/shared/config/database.yml")
       upload!('config/master.key', "/var/www/Date_me/shared/config/master.key")
     end
