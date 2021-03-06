@@ -4,7 +4,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.hosts << '.ngrok.io'
   config.hosts.clear
-  config.web_console.whitelisted_ips = '39.110.218.243'
+  # config.web_console.whitelisted_ips = '39.110.218.243'
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
