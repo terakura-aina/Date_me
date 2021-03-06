@@ -38,10 +38,14 @@ set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 desc 'set crontab'
   task :whenever do
     on roles(:app) do
+      ### ↓追記ここから
+      within previous_release do
+        execute :bundle, :exec, 'whenever --clear-crontab'
+      end
+      ### ↑追記ここまで
 
       within release_path do
-        #execute :bundle, :exec, 'whenever --update-crontab'
-        execute :bundle, :exec, 'whenever --write-crontab'
+        execute :bundle, :exec, 'whenever --update-crontab'
       end
     end
   end
@@ -76,6 +80,5 @@ namespace :deploy do
   before 'check:linked_files', 'puma:nginx_config'
 end
 
-after :deploy, 'deploy:whenever'
 after 'deploy:published', 'nginx:restart'
 before 'deploy:migrate', 'deploy:db_create'
