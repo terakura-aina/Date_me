@@ -20,7 +20,8 @@ set :puma_preload_app, true
 set :branch, ENV['BRANCH'] || "main"
 set :puma_systemctl_bin, '/usr/bin/systemctl'
 set :puma_systemctl_user, :system
-set :whenever_roles,        ->{ :app }
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+
 
 # namespace :puma do
 #   desc 'Create Directories for Puma Pids and Socket'
