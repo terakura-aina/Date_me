@@ -20,7 +20,7 @@ set :puma_preload_app, true
 set :branch, ENV['BRANCH'] || "main"
 set :puma_systemctl_bin, '/usr/bin/systemctl'
 set :puma_systemctl_user, :system
-set :whenever_roles,        ->{ :app }
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 
 # namespace :puma do
@@ -35,18 +35,16 @@ set :whenever_roles,        ->{ :app }
 #   before :start, :make_dirs
 # end
 
-namespace :load do
-  task :defaults do
-    set :whenever_roles,        ->{ :db }
-    set :whenever_command,      ->{ [:bundle, :exec, :whenever] }
-    set :whenever_command_environment_variables, ->{ { rails_env: fetch(:whenever_environment) } }
-    set :whenever_identifier,   ->{ fetch :application }
-    set :whenever_environment,  ->{ fetch :rails_env, fetch(:stage, "production") }
-    set :whenever_variables,    ->{ "environment=#{fetch :whenever_environment}" }
-    set :whenever_update_flags, ->{ "--update-crontab #{fetch :whenever_identifier} --set #{fetch :whenever_variables}" }
-    set :whenever_clear_flags,  ->{ "--clear-crontab #{fetch :whenever_identifier}" }
+desc 'set crontab'
+  task :whenever do
+    on roles(:app) do
+
+      within release_path do
+        #execute :bundle, :exec, 'whenever --update-crontab'
+        execute :bundle, :exec, 'whenever --write-crontab'
+      end
+    end
   end
-end
 
 namespace :deploy do
   desc 'upload important files'
@@ -78,5 +76,6 @@ namespace :deploy do
   before 'check:linked_files', 'puma:nginx_config'
 end
 
+after :deploy, 'deploy:whenever'
 after 'deploy:published', 'nginx:restart'
 before 'deploy:migrate', 'deploy:db_create'
