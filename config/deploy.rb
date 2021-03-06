@@ -20,7 +20,7 @@ set :puma_preload_app, true
 set :branch, ENV['BRANCH'] || "main"
 set :puma_systemctl_bin, '/usr/bin/systemctl'
 set :puma_systemctl_user, :system
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :whenever_roles,        ->{ :app }
 
 
 # namespace :puma do
