@@ -35,21 +35,6 @@ set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 #   before :start, :make_dirs
 # end
 
-desc 'set crontab'
-  task :whenever do
-    on roles(:app) do
-      ### ↓追記ここから
-      within previous_release do
-        execute :bundle, :exec, 'whenever --clear-crontab'
-      end
-      ### ↑追記ここまで
-
-      within release_path do
-        execute :bundle, :exec, 'whenever --update-crontab'
-      end
-    end
-  end
-
 namespace :deploy do
   desc 'upload important files'
   task :upload do
