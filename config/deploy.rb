@@ -22,19 +22,6 @@ set :puma_systemctl_bin, '/usr/bin/systemctl'
 set :puma_systemctl_user, :system
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
-
-# namespace :puma do
-#   desc 'Create Directories for Puma Pids and Socket'
-#   task :make_dirs do
-#     on roles(:app) do
-#       execute "mkdir /var/www/Date_me/shared/tmp/sockets -p"
-#       execute "mkdir /var/www/Date_me/shared/tmp/pids -p"
-#     end
-#   end
-
-#   before :start, :make_dirs
-# end
-
 namespace :deploy do
   desc 'upload important files'
   task :upload do
