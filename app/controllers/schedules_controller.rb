@@ -88,6 +88,7 @@ class SchedulesController < ApplicationController
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
     config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
+
     response = client.push_message(@schedule.invited.line_user_id, message)
     p response
 
@@ -106,7 +107,7 @@ class SchedulesController < ApplicationController
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
     config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
-    response = client.push_message(current_user.line_user_id, message)
+    response = client.push_message(chancel_user, message)
     p response
 
     @schedule.destroy!
@@ -116,5 +117,14 @@ class SchedulesController < ApplicationController
 
   def schedule_params
     params.require(:schedule).permit(:start_planned_day_at, :finish_planned_day_at, :other, :invited_id)
+  end
+
+  def chancel_user
+    if current_user == @schedule.invited
+      #値がnilであればUser.find_by(id: session[:user_id])が代入される
+      @schedule.make_plan.partner.line_user_id
+    else
+      current_user.line_user_id
+    end
   end
 end
