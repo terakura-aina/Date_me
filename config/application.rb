@@ -25,6 +25,9 @@ module DateMe
     config.load_defaults 6.1
     config.paths.add 'lib', eager_load: true
 
+    config.autoload_paths += %W("#{config.root}/lib")
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
