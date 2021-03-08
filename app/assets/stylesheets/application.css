@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.wf-kokoro { font-family: "Kokoro"; }
+.font { font-family: 'Shippori Mincho B1', serif; }
 
 .main-container {
   background-image: url("/images/back.jpg");

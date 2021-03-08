@@ -1,5 +1,5 @@
 = javascript_pack_tag 'schedules/index'
-h1.text-4xl.text-center.wf-kokoro デートの予定一覧
+h1.text-4xl.text-center.font デートの予定一覧
 
 - if @schedules.where(answer: 1).present?
   - @schedules.where(answer: 1).each do |schedule|
