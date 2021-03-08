@@ -106,7 +106,7 @@ class SchedulesController < ApplicationController
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
     config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
-    response = client.push_message(@schedule.invited.line_user_id, message)
+    response = client.push_message(current_user.line_user_id, message)
     p response
 
     @schedule.destroy!
