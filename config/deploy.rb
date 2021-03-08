@@ -21,8 +21,6 @@ set :branch, ENV['BRANCH'] || "main"
 set :puma_systemctl_bin, '/usr/bin/systemctl'
 set :puma_systemctl_user, :system
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-set :output, environment == 'development' ? 'log/crontab.log' : '/var/www/Date_me/shared/log/crontab.log'
-job_type :rake, 'export PATH="$HOME/.rbenv/bin:$PATH"; eval "$(rbenv init -)"; cd :path && RAILS_ENV=:environment bundle exec rake :task :output'
 
 namespace :deploy do
   desc 'upload important files'
