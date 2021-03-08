@@ -10,6 +10,6 @@ every 15.minutes do
   rake 'push:push_remind'
 end
 
-every 5.minutes do
+every 30.minutes do
   rake 'push:push_mission'
 end
