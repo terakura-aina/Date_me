@@ -12,4 +12,4 @@ h1.text-4xl.text-center.font デートの予定一覧
           br
           = schedule.other
           = link_to "予定を取り消す", schedule_path(schedule.id), data: { confirm: '後からキャンセルと取り消すことはできません。よろしいですか?' },
-                                                  method: :DELETE, id: 'ng',remote: true, class: 'bg-gray-100 hover:bg-yellow-500 rounded text-lg py-1 px-2 m-3 shadow-lg right-0'
+                                                  method: :DELETE, id: 'ng',remote: true, class: 'bg-gray-100 hover:bg-yellow-500 rounded text-lg py-1 px-2 m-3 shadow-lg right-0 text-gray-500'
