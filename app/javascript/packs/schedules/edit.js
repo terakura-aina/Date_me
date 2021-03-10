@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // partnerのline_user_idを保存するための処理
     const idToken = liff.getIDToken()
-    console.log(idToken)
     const body =`idToken=${idToken}`
     const request = new Request('/users', {
       headers: {
@@ -37,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       const postFormElm = document.querySelector('#ok')
       postFormElm.addEventListener('ajax:success', (e) => {
-        console.log(e.detail[0])
         const scheduleToken = e.detail[0].token
 
         // make_plansテーブルに保存するための処理

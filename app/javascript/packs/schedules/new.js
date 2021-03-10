@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // idTokenからユーザーIDを取得し、userテーブルに保存するための処理
   .then(() => {
     const idToken = liff.getIDToken()
-    console.log(idToken)
     const body =`idToken=${idToken}`
     const request = new Request('/users', {
       headers: {
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // フォームの内容をpostしてokが返ってきたらshareTargetPickerを開く
   const postFormElm = document.querySelector('#form')
   postFormElm.addEventListener('ajax:success', (e) => {
-    console.log(e.detail[0])
 
     // ここでshared target pickerを呼び出す
     const redirect_url = `https://liff.line.me/1655665365-robLXJ1P/schedules/${e.detail[0].token}`

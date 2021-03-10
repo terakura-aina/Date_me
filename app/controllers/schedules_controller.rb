@@ -73,6 +73,7 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule = Schedule.find(params[:id])
+    @schedule.destroy!
     message = {
       "type": "text",
       "text": "デートがキャンセルされました$",
@@ -109,8 +110,6 @@ class SchedulesController < ApplicationController
     }
     response = client.push_message(chancel_user, message)
     p response
-
-    @schedule.destroy!
   end
 
   private
@@ -120,11 +119,6 @@ class SchedulesController < ApplicationController
   end
 
   def chancel_user
-    if current_user == @schedule.invited
-      #値がnilであればUser.find_by(id: session[:user_id])が代入される
-      @schedule.make_plan.partner.line_user_id
-    else
-      current_user.line_user_id
-    end
+      User.find(session[:user_id]).line_user_id
   end
 end
