@@ -47,6 +47,9 @@ class SchedulesController < ApplicationController
   end
 
   def edit
+    if User.find_by(id: session[:user_id]) == nil
+      redirect_to "/login?token=#{params[:token]}"
+    end
     @schedule = Schedule.find_by(token: params[:token])
     if @schedule == nil || @schedule.answer == 'ok'
       raise ActiveRecord::RecordNotFound
@@ -108,8 +111,12 @@ class SchedulesController < ApplicationController
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
     config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
-    response = client.push_message(chancel_user, message)
+    response = client.push_message(cancel_user, message)
     p response
+  end
+
+  def login
+    @token = params[:token]
   end
 
   private
@@ -118,7 +125,7 @@ class SchedulesController < ApplicationController
     params.require(:schedule).permit(:start_planned_day_at, :finish_planned_day_at, :other, :invited_id)
   end
 
-  def chancel_user
+  def cancel_user
       User.find(session[:user_id]).line_user_id
   end
 end

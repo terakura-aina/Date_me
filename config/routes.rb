@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :today_missions, only: [:update]
 
   root 'schedules#show'
+  get '/login' => 'schedules#login'
   get '/missions/:token/:user' => 'missions#index'
   get '/schedules/:token' => 'schedules#edit'
   get '/terms' => 'settings#terms'
