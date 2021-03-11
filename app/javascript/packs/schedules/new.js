@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   postFormElm.addEventListener('ajax:success', (e) => {
 
     // ここでshared target pickerを呼び出す
-    const redirect_url = `https://liff.line.me/1655665365-robLXJ1P/schedules/${e.detail[0].token}`
+    const redirect_url = `https://liff.line.me/1655665365-robLXJ1P/login?token=${e.detail[0].token}`
     liff.shareTargetPicker([
       message = {
         "type": "template",

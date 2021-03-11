@@ -47,6 +47,7 @@ class SchedulesController < ApplicationController
   end
 
   def edit
+    @user = User.find(session[:user_id])
     @schedule = Schedule.find_by(token: params[:token])
     if @schedule == nil || @schedule.answer == 'ok'
       raise ActiveRecord::RecordNotFound
@@ -95,10 +96,10 @@ class SchedulesController < ApplicationController
 
     message = {
       "type": "text",
-      "text": "デートをキャンセルしました$",
+      "text": "デートがキャンセルされました$",
       "emojis": [
           {
-            "index": 13,
+            "index": 14,
             "productId": "5ac1bfd5040ab15980c9b435",
             "emojiId": "046"
           }
@@ -108,9 +109,11 @@ class SchedulesController < ApplicationController
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
     config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
-    response = client.push_message(chancel_user, message)
+    response = client.push_message(cancel_user, message)
     p response
   end
+
+  def login; end
 
   private
 
@@ -118,7 +121,11 @@ class SchedulesController < ApplicationController
     params.require(:schedule).permit(:start_planned_day_at, :finish_planned_day_at, :other, :invited_id)
   end
 
-  def chancel_user
-      User.find(session[:user_id]).line_user_id
+  def cancel_user
+      if @schedule.make_plan.partner
+        @schedule.make_plan.partner.line_user_id
+      else
+        User.find(session[:user_id]).line_user_id
+      end
   end
 end
