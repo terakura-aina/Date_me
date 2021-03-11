@@ -55,6 +55,7 @@ class SchedulesController < ApplicationController
   end
 
   def update
+    debugger
     @schedule = Schedule.find(params[:id])
     @schedule.assign_attributes(answer: 1)
     # 開始時刻より後でもOKできるように、バリデーションスキップ
@@ -69,6 +70,16 @@ class SchedulesController < ApplicationController
     config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
     response = client.push_message(@schedule.invited.line_user_id, message)
+    p response
+    message = {
+      "type": "text",
+      "text": "デートをOKしました！",
+    }
+    client = Line::Bot::Client.new { |config|
+    config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+    config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+    }
+    response = client.push_message(User.find(session[:user_id]).line_user_id, message)
     p response
   end
 
