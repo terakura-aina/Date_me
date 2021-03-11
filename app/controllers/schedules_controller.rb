@@ -84,6 +84,7 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
+    debugger
     @schedule = Schedule.find(params[:id])
     @schedule.destroy!
     message = {
@@ -133,7 +134,7 @@ class SchedulesController < ApplicationController
   end
 
   def cancel_user
-      if @schedule.make_plan.partner
+      if @schedule.answer == 'ok'
         @schedule.make_plan.partner.line_user_id
       else
         User.find(session[:user_id]).line_user_id
