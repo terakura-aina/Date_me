@@ -55,7 +55,6 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    debugger
     @schedule = Schedule.find(params[:id])
     @schedule.assign_attributes(answer: 1)
     # 開始時刻より後でもOKできるように、バリデーションスキップ
@@ -84,7 +83,6 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
-    debugger
     @schedule = Schedule.find(params[:id])
     @schedule.destroy!
     message = {
