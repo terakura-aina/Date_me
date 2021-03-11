@@ -47,9 +47,7 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-    if User.find_by(id: session[:user_id]) == nil
-      redirect_to "/login?token=#{params[:token]}"
-    end
+    @user = User.find(session[:user_id])
     @schedule = Schedule.find_by(token: params[:token])
     if @schedule == nil || @schedule.answer == 'ok'
       raise ActiveRecord::RecordNotFound
@@ -98,10 +96,10 @@ class SchedulesController < ApplicationController
 
     message = {
       "type": "text",
-      "text": "デートをキャンセルしました$",
+      "text": "デートがキャンセルされました$",
       "emojis": [
           {
-            "index": 13,
+            "index": 14,
             "productId": "5ac1bfd5040ab15980c9b435",
             "emojiId": "046"
           }
@@ -115,9 +113,7 @@ class SchedulesController < ApplicationController
     p response
   end
 
-  def login
-    @token = params[:token]
-  end
+  def login; end
 
   private
 
@@ -126,6 +122,10 @@ class SchedulesController < ApplicationController
   end
 
   def cancel_user
-      User.find(session[:user_id]).line_user_id
+      if @schedule.make_plan.partner
+        @schedule.make_plan.partner.line_user_id
+      else
+        User.find(session[:user_id]).line_user_id
+      end
   end
 end

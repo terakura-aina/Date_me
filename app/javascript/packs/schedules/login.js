@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   liff.init({
     liffId: "1655665365-robLXJ1P"
   })
+  .then(() => {
+    if (!liff.isLoggedIn()) {
+      liff.login();
+    }
+  })
   // idTokenからユーザーIDを取得し、userテーブルに保存するための処理
   .then(() => {
     const idToken = liff.getIDToken();
@@ -18,16 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fetch(request)
-  })
-  .then(() => {
-    if (!liff.isLoggedIn()) {
-      liff.login();
-    }
-  })
-  .then(() => {
-    const params = new URLSearchParams(window.location.search);
-    const schedule_token = params.get('token')
-    const redirect_url = `https://liff.line.me/1655665365-robLXJ1P/schedules/${schedule_token}`
-    window.location = redirect_url
+    .then(() => {
+      const params = new URLSearchParams(window.location.search);
+      const schedule_token = params.get('token')
+      const redirect_url = `/schedules/${schedule_token}`
+      window.location = redirect_url
+    })
   })
 })
