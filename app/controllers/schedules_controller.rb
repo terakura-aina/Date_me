@@ -125,6 +125,8 @@ class SchedulesController < ApplicationController
 
   def login; end
 
+  def indexlogin; end
+
   private
 
   def schedule_params
