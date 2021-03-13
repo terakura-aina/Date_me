@@ -1,4 +1,4 @@
-h1.text-5xl.text-center.wf-kokoro ミッション一覧
+h1.text-5xl.text-center.font ミッション一覧
 table
   thead
     tr
@@ -8,12 +8,12 @@ table
     -if params[:user] == 'invited'
       - @schedule.today_missions.where(user_status: "invited").each do |today|
           tr
-            td.px-4.ml-2.p-2.wf-kokoro.text-xl = today.mission.body
+            td.px-4.ml-2.p-2.font.text-xl = today.mission.body
             td id="mission-#{today.id}" = render 'missions/mission', today: today
 
     -if params[:user] == 'partner'
       - @schedule.today_missions.where(user_status: "partner").each do |today|
           tr
-            td.px-4.ml-2.p-2.wf-kokoro.text-xl = today.mission.body
+            td.px-4.ml-2.p-2.font.text-xl = today.mission.body
             td id="mission-#{today.id}" = render 'missions/mission', today: today
 = javascript_pack_tag 'missions/index'
