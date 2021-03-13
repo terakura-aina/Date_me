@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root 'schedules#show'
   get '/login' => 'schedules#login'
+  get '/indexlogin' => 'schedules#indexlogin'
   get '/missions/:token/:user' => 'missions#index'
   get '/schedules/:token' => 'schedules#edit'
   get '/terms' => 'settings#terms'
