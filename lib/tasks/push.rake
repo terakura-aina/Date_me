@@ -12,7 +12,7 @@ namespace :push do
         "template": {
             "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1614183954/2021.2.24rose-5_f4u1hp.jpg",
             "type": "buttons",
-            "title": "デートを楽しんでいるお二人へ",
+            "title": "デートを楽しんでいるあなたへ",
             "text": "新しいミッションが届きました！",
             "actions": [
                 {
@@ -37,7 +37,7 @@ namespace :push do
         "template": {
             "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1614183954/2021.2.24rose-5_f4u1hp.jpg",
             "type": "buttons",
-            "title": "デートを楽しんでいるお二人へ",
+            "title": "デートを楽しんでいるあなたへ",
             "text": "新しいミッションが届きました！",
             "actions": [
                 {

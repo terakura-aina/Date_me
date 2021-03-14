@@ -18,8 +18,11 @@ div.border.rounded-t.border-gray-500
 br
 br
 div.font.font-bold
-  - unless current_user.id == @schedule.invited.id
+  - unless User.find(session[:user_id]).id == @schedule.invited.id || @schedule.answer == 'ok'
     = link_to "確認しました!", schedule_path(@schedule.id), method: :PATCH, id: 'ok', remote: true, class: 'bg-yellow-200 hover:bg-yellow-400 rounded text-2xl py-2 px-4 m-3 shadow-lg'
     = link_to "NG...", schedule_path(@schedule.id), data: { confirm: '後からキャンセルを取り消すことはできません。よろしいですか?' },
                                                   method: :DELETE, id: 'ng',remote: true, class: 'bg-gray-100 hover:bg-yellow-300 rounded text-2xl py-2 px-4 m-3 shadow-lg text-gray-500'
+  - if @schedule.answer == 'ok'
+    = link_to "このデートをキャンセルする", schedule_path(@schedule.id), data: { confirm: '後からキャンセルを取り消すことはできません。よろしいですか?' },
+                                                  method: :DELETE, id: 'ng',remote: true, class: 'bg-gray-100 hover:bg-yellow-300 rounded text-lg py-2 px-4 m-3 shadow-lg text-gray-500'
 

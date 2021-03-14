@@ -49,8 +49,8 @@ class SchedulesController < ApplicationController
   def edit
     @user = User.find(session[:user_id])
     @schedule = Schedule.find_by(token: params[:token])
-    if @schedule == nil || @schedule.answer == 'ok'
-      raise ActiveRecord::RecordNotFound
+    if @schedule == nil
+      render file: 'public/cancel.html', status: 200, layout: false
     end
   end
 
