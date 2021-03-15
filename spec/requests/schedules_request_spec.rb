@@ -12,28 +12,28 @@ RSpec.describe "Schedules", type: :request do
   end
 
   describe "POST /create" do
-    xit "returns http success" do
+    it "returns http success" do
       post schedules_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /index" do
-    xit "returns http success" do
-      get "/schedules"
+    it "returns http success" do
+      get "/indexlogin"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /edit" do
     it "returns http success" do
-      get "/schedules/MyText"
+      get "/login"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /update" do
-    it "returns http success" do
+    xit "returns http success" do
       patch "/schedules/1"
       expect(response).to have_http_status(:success)
     end
