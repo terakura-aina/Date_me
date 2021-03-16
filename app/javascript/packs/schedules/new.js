@@ -62,7 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('TargetPicker was closed!')
         liff.closeWindow();
       }
-    }).catch(function (res) {
+    })
+    .then(() => {
+      fetch('/message')
+    })
+    .catch(function (res) {
       alert("送信に失敗しました…")
     });
   })

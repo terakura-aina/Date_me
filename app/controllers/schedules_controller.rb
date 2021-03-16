@@ -21,7 +21,16 @@ class SchedulesController < ApplicationController
     if @schedule.update(token: SecureRandom.hex(32),invited_id: user.id)
       @schedule.update(token: SecureRandom.hex(32),invited_id: user.id)
       render json: @schedule
-      message = {
+    else
+      respond_to do |format|
+        format.js { render 'create', status: 400 }
+        format.js { render 'create' }
+      end
+    end
+  end
+
+  def message
+    message = {
         "type": "text",
         "text": "デートのお誘いをしています！\nお返事があるまでお待ちください$",
         "emojis": [
@@ -36,14 +45,8 @@ class SchedulesController < ApplicationController
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
       }
-      response = client.push_message(@schedule.invited.line_user_id, message)
+      response = client.push_message(User.find(session[:user_id]).line_user_id, message)
       p response
-    else
-      respond_to do |format|
-        format.js { render 'create', status: 400 }
-        format.js { render 'create' }
-      end
-    end
   end
 
   def edit
@@ -62,7 +65,14 @@ class SchedulesController < ApplicationController
     render json: @schedule
     message = {
       "type": "text",
-      "text": "デートがOKされました！",
+      "text": "デートがOKされました！\nミッションはデート当日、時間になると届きます$\nそれまでお楽しみに♪",
+      "emojis": [
+        {
+          "index": 35,
+          "productId": "5ac1bfd5040ab15980c9b435",
+          "emojiId": "009"
+        }
+      ]
     }
     client = Line::Bot::Client.new { |config|
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -72,7 +82,14 @@ class SchedulesController < ApplicationController
     p response
     message = {
       "type": "text",
-      "text": "デートをOKしました！",
+      "text": "デートをOKしました！\nミッションはデート当日、時間になると届きます$\nそれまでお楽しみに♪",
+      "emojis": [
+        {
+          "index": 34,
+          "productId": "5ac1bfd5040ab15980c9b435",
+          "emojiId": "009"
+        }
+      ]
     }
     client = Line::Bot::Client.new { |config|
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
