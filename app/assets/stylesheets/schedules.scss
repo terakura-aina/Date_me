@@ -1,3 +1,11 @@
 // Place all the styles related to the schedules controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#schedule_start_planned_day_at_1i,#schedule_start_planned_day_at_2i,#schedule_start_planned_day_at_3i,#schedule_start_planned_day_at_4i,#schedule_start_planned_day_at_5i,
+#schedule_finish_planned_day_at_1i,#schedule_finish_planned_day_at_2i,#schedule_finish_planned_day_at_3i,#schedule_finish_planned_day_at_4i,#schedule_finish_planned_day_at_5i {
+  font-size:large;
+  border-radius: 10px;
+  background-color:rgba(255,250,240,0.5);
+  color:#778899;
+}
