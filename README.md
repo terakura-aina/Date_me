@@ -23,11 +23,11 @@
 ## :bouquet:App URL(スマートフォンから見ることをおすすめします)
 https://love-dateme.com/top  
 <br>
-:tulip:PV数 5500PV  
+:tulip:PV数 5900PV  
 <br>
-:tulip:友だち登録数140人 
+:tulip:友だち登録数150人 
 <br>
-(2021年3月18日現在)
+(2021年3月21日現在)
 <br>
 <br>
 <br>
@@ -35,9 +35,9 @@ https://love-dateme.com/top
 ## :bouquet:Qiita記事
 [【Rails×LIFF】でデートサポートサービス『Date me』を作りました！【個人開発】](https://qiita.com/terakura-aina/items/c613a7078b460b6189ff)
 
-:tulip:LGTM 100
+:tulip:LGTM 106
 <br>
-(2021年3月18日現在)
+(2021年3月21日現在)
 <br>
 <br>
 <br>
