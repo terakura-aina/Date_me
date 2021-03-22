@@ -107,3 +107,10 @@ https://xd.adobe.com/view/1720b733-f087-4b61-a494-12e01cba8629-4273/
 
 ## :bouquet:ER図
 ![ER図](https://user-images.githubusercontent.com/72124914/109919119-7e263200-7cfb-11eb-955e-f668d374a2ec.png)
+
+<br>
+<br>
+<br>
+
+## :bouquet:インフラ構成図
+![インフラ構成図](https://user-images.githubusercontent.com/72124914/111998265-327ae180-8b5f-11eb-9391-fde266127a20.png)
