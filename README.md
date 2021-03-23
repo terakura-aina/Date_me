@@ -23,11 +23,11 @@
 ## :bouquet:App URL(スマートフォンから見ることをおすすめします)
 https://love-dateme.com/top  
 <br>
-:tulip:PV数 5900PV  
+:tulip:PV数 6000PV  
 <br>
-:tulip:友だち登録数150人 
+:tulip:友だち登録数160人 
 <br>
-(2021年3月21日現在)
+(2021年3月22日現在)
 <br>
 <br>
 <br>
