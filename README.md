@@ -42,6 +42,14 @@ https://love-dateme.com/top
 <br>
 <br>
 
+## :bouquet:note記事
+[Date meを通して伝えたいこと](https://note.com/terakura_aina/n/ne9b613c87e5e)  
+<br>
+Date meを作った理由について、想いの部分をまとめています。
+<br>
+<br>
+<br>
+
 ## :bouquet:Date meについて
 ### 登場人物
 パートナーと仲良くしたい人
