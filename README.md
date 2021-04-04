@@ -25,7 +25,7 @@ https://love-dateme.com/top
 <br>
 :tulip:PV数 6500PV  
 <br>
-:tulip:友だち登録数170人 
+:tulip:友だち登録数180人 
 <br>
 (2021年3月29日現在)
 <br>
